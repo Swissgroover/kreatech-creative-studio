@@ -1,12 +1,10 @@
 import { Reveal } from "./Reveal";
-
-// PLACEHOLDER MEESKOND — asenda fotod, nimed ja rollid
-const team = [
-  { name: "Eesnimi Perekonnanimi", role: "Asutaja · Arendaja", img: "" },
-  { name: "Eesnimi Perekonnanimi", role: "Arendaja · Süsteemid", img: "" },
-];
+import { useLang } from "@/i18n/lang";
 
 export function About() {
+  const { t } = useLang();
+  const team = t.about.team.map((m) => ({ ...m, img: "" }));
+
   return (
     <section id="about" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
@@ -14,21 +12,20 @@ export function About() {
           <div className="md:col-span-5">
             <Reveal>
               <div className="mb-4 text-xs uppercase tracking-widest text-accent">
-                / Meist
+                {t.about.eyebrow}
               </div>
               <h2 className="font-display text-4xl font-semibold tracking-tight md:text-6xl">
-                Kaks inimest,{" "}
-                <span className="italic text-primary">üks tiim</span>.
+                {t.about.title[0]}
+                <span className="italic text-primary">{t.about.title[1]}</span>
+                {t.about.title[2]}
               </h2>
               <p className="mt-8 max-w-md text-base text-muted-foreground md:text-lg">
-                Oleme väike Eesti stuudio. Töötame otse — ilma vahendajate,
-                pikkade koosolekute ja tühjade lubadusteta. Sa räägid inimestega,
-                kes su koodi ka päriselt kirjutavad.
+                {t.about.sub}
               </p>
               <dl className="mt-12 grid grid-cols-2 gap-8">
                 <div>
                   <dt className="text-xs uppercase tracking-widest text-muted-foreground">
-                    Asutatud
+                    {t.about.foundedLabel}
                   </dt>
                   <dd className="mt-1 font-display text-3xl font-semibold text-foreground">
                     2019
@@ -36,7 +33,7 @@ export function About() {
                 </div>
                 <div>
                   <dt className="text-xs uppercase tracking-widest text-muted-foreground">
-                    Projekte
+                    {t.about.projectsLabel}
                   </dt>
                   <dd className="mt-1 font-display text-3xl font-semibold text-accent">
                     40+
@@ -68,12 +65,8 @@ export function About() {
                       <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
                     </div>
                     <div className="mt-5">
-                      <h3 className="font-display text-xl font-semibold">
-                        {m.name}
-                      </h3>
-                      <p className="mt-1 text-sm text-muted-foreground">
-                        {m.role}
-                      </p>
+                      <h3 className="font-display text-xl font-semibold">{m.name}</h3>
+                      <p className="mt-1 text-sm text-muted-foreground">{m.role}</p>
                     </div>
                   </article>
                 </Reveal>
