@@ -62,6 +62,7 @@ function Index() {
       <Works />
       <ProjectLead />
       <About />
+      <FAQ />
       <Contact />
       <Footer />
     </main>
