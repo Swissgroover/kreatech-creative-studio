@@ -85,27 +85,41 @@ export function Nav() {
 
 function LangToggle({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
   return (
-    <div className="relative flex items-center rounded-full border border-border bg-surface/60 p-0.5 text-xs font-medium backdrop-blur">
-      {(["et", "en"] as const).map((l) => (
-        <button
-          key={l}
-          type="button"
-          onClick={() => setLang(l)}
-          aria-pressed={lang === l}
-          className="relative z-10 px-3 py-1.5 uppercase tracking-widest transition-colors duration-300"
-        >
-          <span className={lang === l ? "text-accent-foreground" : "text-muted-foreground hover:text-foreground"}>
-            {l}
-          </span>
-          {lang === l && (
+    <div
+      role="group"
+      aria-label="Language"
+      className="relative flex items-center rounded-full border border-border/80 bg-surface/60 p-1 text-[11px] font-semibold backdrop-blur-xl shadow-[inset_0_1px_0_0_rgb(255_255_255_/_0.04)]"
+    >
+      {(["et", "en"] as const).map((l) => {
+        const active = lang === l;
+        return (
+          <button
+            key={l}
+            type="button"
+            onClick={() => setLang(l)}
+            aria-pressed={active}
+            aria-label={l === "et" ? "Eesti keel" : "English"}
+            className="relative z-10 inline-flex h-7 w-9 items-center justify-center rounded-full uppercase tracking-[0.18em] transition-transform duration-300 hover:scale-[1.04] active:scale-95"
+          >
+            {active && (
+              <motion.span
+                layoutId="lang-pill"
+                transition={{ type: "spring", stiffness: 380, damping: 30, mass: 0.7 }}
+                className="absolute inset-0 -z-0 rounded-full bg-accent shadow-[0_0_22px_-4px] shadow-accent"
+              />
+            )}
             <motion.span
-              layoutId="lang-pill"
-              transition={{ type: "spring", stiffness: 400, damping: 32 }}
-              className="absolute inset-0 -z-0 rounded-full bg-accent shadow-[0_0_18px_-4px] shadow-accent"
-            />
-          )}
-        </button>
-      ))}
+              animate={{
+                color: active ? "var(--accent-foreground)" : "var(--muted-foreground)",
+              }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="relative z-10"
+            >
+              {l}
+            </motion.span>
+          </button>
+        );
+      })}
     </div>
   );
 }

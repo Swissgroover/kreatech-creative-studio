@@ -9,6 +9,7 @@ import { About } from "@/components/site/About";
 import { FAQ } from "@/components/site/FAQ";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
+import { LangFade } from "@/i18n/lang";
 
 const TITLE = "Kreatech — Tarkvara arendus, ReactJS, WordPress & Statamic | Eesti";
 const DESCRIPTION =
@@ -119,15 +120,17 @@ function Index() {
   return (
     <main className="relative">
       <Nav />
-      <Hero />
-      <Services />
-      <Process />
-      <Works />
-      <ProjectLead />
-      <About />
-      <FAQ />
-      <Contact />
-      <Footer />
+      <LangFade>
+        <Hero />
+        <Services />
+        <Process />
+        <Works />
+        <ProjectLead />
+        <About />
+        <FAQ />
+        <Contact />
+        <Footer />
+      </LangFade>
     </main>
   );
 }
