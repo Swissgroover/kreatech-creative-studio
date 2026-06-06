@@ -7,6 +7,7 @@ const links = [
   { href: "#works", label: "Tööd" },
   { href: "#lead", label: "Projektijuht" },
   { href: "#about", label: "Meist" },
+  { href: "#faq", label: "KKK" },
   { href: "#contact", label: "Kontakt" },
 ];
 
