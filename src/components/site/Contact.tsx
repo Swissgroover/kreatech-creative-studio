@@ -2,7 +2,7 @@ import { useState, type FormEvent } from "react";
 import { Reveal } from "./Reveal";
 import { useLang } from "@/i18n/lang";
 
-const EMAIL = "info@kreatech.ee";
+const EMAIL = "";
 
 export function Contact() {
   const { t } = useLang();

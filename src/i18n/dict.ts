@@ -224,7 +224,7 @@ export const dict = {
     services: {
       eyebrow: "/ Services",
       title: ["What we ", "do", "."],
-      sub: "Four core capabilities — we do all of them properly. Pick one or combine.",
+      sub: "Four core capabilities — Pick one or combine.",
       items: [
         {
           title: "Software development",
