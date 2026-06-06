@@ -149,8 +149,8 @@ export const dict = {
       foundedLabel: "Asutatud",
       projectsLabel: "Projekte",
       team: [
-        { name: "Karl Gregor Rauniste", role: "Projektijuht · Arendaja" },
-        { name: "Gen Vikat", role: "Arendaja · Süsteemid" },
+        { name: "Karl Gregor Rauniste", role: "Projektijuht · Arendaja", image: "" },
+        { name: "Gen Vikat", role: "Arendaja · Süsteemid", image: "" },
       ],
     },
     faq: {
@@ -319,8 +319,8 @@ export const dict = {
       foundedLabel: "Founded",
       projectsLabel: "Projects",
       team: [
-        { name: "First Last", role: "Founder · Developer" },
-        { name: "First Last", role: "Developer · Systems" },
+        { name: "Karl Gregor Rauniste", role: "Founder · Developer", image: "" },
+        { name: "Gen Vikat", role: "Developer · Systems", image: "" },
       ],
     },
     faq: {

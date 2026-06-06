@@ -3,7 +3,7 @@ import { useLang } from "@/i18n/lang";
 
 export function About() {
   const { t } = useLang();
-  const team = t.about.team.map((m) => ({ ...m, img: "" }));
+  const team = t.about.team as readonly { name: string; role: string; image: string }[];
 
   return (
     <section id="about" className="relative py-24 md:py-32">
@@ -31,9 +31,9 @@ export function About() {
                 <Reveal key={i} delay={i * 0.1}>
                   <article className="group relative overflow-hidden rounded-3xl border border-border bg-surface p-6">
                     <div className="relative aspect-square overflow-hidden rounded-2xl bg-surface-2">
-                      {m.img ? (
+                      {m.image ? (
                         <img
-                          src={m.img}
+                          src={m.image}
                           alt={m.name}
                           className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
