@@ -31,9 +31,9 @@ export function About() {
                 <Reveal key={i} delay={i * 0.1}>
                   <article className="group relative overflow-hidden rounded-3xl border border-border bg-surface p-6">
                     <div className="relative aspect-square overflow-hidden rounded-2xl bg-surface-2">
-                      {m.img ? (
+                      {m.image ? (
                         <img
-                          src={m.img}
+                          src={m.image}
                           alt={m.name}
                           className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
