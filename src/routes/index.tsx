@@ -6,6 +6,7 @@ import { Process } from "@/components/site/Process";
 import { Works } from "@/components/site/Works";
 import { ProjectLead } from "@/components/site/ProjectLead";
 import { About } from "@/components/site/About";
+import { FAQ } from "@/components/site/FAQ";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 
