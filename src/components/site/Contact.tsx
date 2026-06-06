@@ -1,17 +1,17 @@
 import { useState, type FormEvent } from "react";
 import { Reveal } from "./Reveal";
+import { useLang } from "@/i18n/lang";
 
 const EMAIL = "info@kreatech.ee";
 
 export function Contact() {
+  const { t } = useLang();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   function submit(e: FormEvent) {
     e.preventDefault();
-    const subject = encodeURIComponent(`Päring saidilt — ${form.name}`);
-    const body = encodeURIComponent(
-      `Nimi: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
-    );
+    const subject = encodeURIComponent(t.contact.mailSubject(form.name));
+    const body = encodeURIComponent(t.contact.mailBody(form.name, form.email, form.message));
     window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
   }
 
@@ -26,15 +26,15 @@ export function Contact() {
           <div>
             <Reveal>
               <div className="mb-4 text-xs uppercase tracking-widest text-accent">
-                / Kontakt
+                {t.contact.eyebrow}
               </div>
               <h2 className="font-display text-5xl font-semibold leading-[0.95] tracking-tight text-balance md:text-8xl">
-                Räägime{" "}
-                <span className="italic text-accent">sinu</span> projektist.
+                {t.contact.title[0]}
+                <span className="italic text-accent">{t.contact.title[1]}</span>
+                {t.contact.title[2]}
               </h2>
               <p className="mt-8 max-w-md text-base text-muted-foreground md:text-lg">
-                Saada lühike kirjeldus — vastame paari tööpäeva jooksul ja
-                lepime kokku tutvumiskõne.
+                {t.contact.sub}
               </p>
               <a
                 href={`mailto:${EMAIL}`}
@@ -52,14 +52,14 @@ export function Contact() {
             >
               <div className="space-y-5">
                 <Field
-                  label="Sinu nimi"
+                  label={t.contact.nameLabel}
                   value={form.name}
                   onChange={(v) => setForm({ ...form, name: v })}
                   type="text"
                   required
                 />
                 <Field
-                  label="Email"
+                  label={t.contact.emailLabel}
                   value={form.email}
                   onChange={(v) => setForm({ ...form, email: v })}
                   type="email"
@@ -67,15 +67,13 @@ export function Contact() {
                 />
                 <div>
                   <label className="block text-xs uppercase tracking-widest text-muted-foreground">
-                    Sõnum
+                    {t.contact.messageLabel}
                   </label>
                   <textarea
                     required
                     rows={5}
                     value={form.message}
-                    onChange={(e) =>
-                      setForm({ ...form, message: e.target.value })
-                    }
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
                     className="mt-2 w-full resize-none border-0 border-b border-border bg-transparent py-2 text-foreground outline-none transition-colors focus:border-accent"
                   />
                 </div>
@@ -84,10 +82,8 @@ export function Contact() {
                 type="submit"
                 className="group mt-8 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-4 text-sm font-semibold text-accent-foreground transition-transform hover:scale-[1.01]"
               >
-                Saada sõnum
-                <span className="transition-transform group-hover:translate-x-1">
-                  →
-                </span>
+                {t.contact.submit}
+                <span className="transition-transform group-hover:translate-x-1">→</span>
               </button>
             </form>
           </Reveal>
