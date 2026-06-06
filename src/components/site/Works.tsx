@@ -101,7 +101,8 @@ export function Works() {
           }}
           className="flex gap-6 overflow-x-auto overflow-y-hidden scroll-smooth snap-x snap-mandatory px-6 md:px-[calc((100vw-80rem)/2+1.5rem)] pb-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden cursor-grab active:cursor-grabbing select-none"
         >
-          {t.works.items.map((w, i) => {
+          {t.works.items.map((item, i) => {
+            const w = item as { title: string; tag: string; href: string; image: string };
             const isExternal = Boolean(w.href);
             const imgSrc =
               w.image ||
