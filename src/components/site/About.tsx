@@ -3,7 +3,7 @@ import { useLang } from "@/i18n/lang";
 
 export function About() {
   const { t } = useLang();
-  const team = t.about.team.map((m) => ({ ...m, img: "" }));
+  const team = t.about.team as readonly { name: string; role: string; image: string }[];
 
   return (
     <section id="about" className="relative py-24 md:py-32">
