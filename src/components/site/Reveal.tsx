@@ -44,6 +44,9 @@ export function Reveal({
     return () => ctx.revert();
   }, [delay, y]);
 
+  const hiddenClass = "opacity-0";
+  const combinedClassName = className ? `${hiddenClass} ${className}` : hiddenClass;
+
   // @ts-expect-error dynamic element
-  return <As ref={ref} className={className} style={{ opacity: 0 }}>{children}</As>;
+  return <As ref={ref} className={combinedClassName}>{children}</As>;
 }
