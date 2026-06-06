@@ -23,6 +23,10 @@ const LangContext = createContext<Ctx | null>(null);
 
 const STORAGE_KEY = "kreatech-lang";
 
+type ViewTransitionDocument = Document & {
+  startViewTransition?: (updateCallback: () => void) => { finished: Promise<void> };
+};
+
 function getInitialLang(): Lang {
   if (typeof window === "undefined") return "et";
   try {
@@ -66,8 +70,9 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
       setIsSwitching(true);
 
-      if (document.startViewTransition) {
-        const transition = document.startViewTransition(applyLang);
+      const startViewTransition = (document as ViewTransitionDocument).startViewTransition;
+      if (startViewTransition) {
+        const transition = startViewTransition.call(document, applyLang);
         transition.finished.finally(() => {
           setIsSwitching(false);
           refreshScrollAnimations();
