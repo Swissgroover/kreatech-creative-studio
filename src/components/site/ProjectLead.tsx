@@ -11,20 +11,20 @@ export function ProjectLead() {
         <div className="absolute -bottom-20 left-[10%] size-[360px] rounded-full bg-accent/10 blur-[120px]" />
       </div>
 
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-surface/60 p-8 backdrop-blur md:p-16">
-          <div className="grid items-center gap-12 md:grid-cols-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="relative overflow-hidden rounded-3xl border border-border bg-surface/60 p-5 backdrop-blur sm:p-8 md:p-16">
+          <div className="grid items-center gap-10 md:grid-cols-12 md:gap-12">
             <Reveal className="md:col-span-7">
               <div className="mb-4 text-xs uppercase tracking-widest text-accent">
                 {t.lead.eyebrow}
               </div>
-              <h2 className="font-display text-4xl font-semibold leading-[1] tracking-tight text-balance md:text-6xl">
+              <h2 className="font-display text-[2rem] font-semibold leading-[1.05] tracking-tight text-balance [overflow-wrap:anywhere] sm:text-4xl md:text-6xl">
                 {t.lead.title[0]}
                 <span className="italic text-primary">{t.lead.title[1]}</span>
                 {t.lead.title[2]}
                 <span className="text-accent">{t.lead.title[3]}</span>
               </h2>
-              <p className="mt-8 max-w-xl text-base text-muted-foreground md:text-lg">
+              <p className="mt-6 max-w-xl text-base text-muted-foreground md:mt-8 md:text-lg">
                 {t.lead.sub}
               </p>
 
