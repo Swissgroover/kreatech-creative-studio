@@ -17,6 +17,7 @@ export const dict = {
       lead: "Kreatech ehitab veebirakendusi, hoiab töös süsteeme ja annab uue elu olemasolevatele WordPressi- ning Statamicu-saitidele. Väike tiim, suur tähelepanu detailile.",
       ctaPrimary: "Alusta projekti",
       ctaSecondary: "Vaata töid",
+      scroll: "Keri",
     },
     services: {
       eyebrow: "/ Teenused",
