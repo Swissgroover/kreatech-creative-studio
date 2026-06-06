@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import { ScrollProgress } from "./ScrollProgress";
+
 
 const links = [
   { href: "#services", label: "Teenused" },
@@ -23,7 +25,9 @@ export function Nav() {
   }, []);
 
   return (
-    <motion.header
+    <>
+      <ScrollProgress />
+      <motion.header
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -76,5 +80,6 @@ export function Nav() {
         </a>
       </nav>
     </motion.header>
+    </>
   );
 }
