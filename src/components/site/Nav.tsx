@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "motion/react";
+import { ScrollProgress } from "./ScrollProgress";
+
 
 const links = [
   { href: "#services", label: "Teenused" },
