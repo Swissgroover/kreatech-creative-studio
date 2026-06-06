@@ -2,25 +2,49 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/site/Hero";
 import { Services } from "@/components/site/Services";
+import { Process } from "@/components/site/Process";
 import { Works } from "@/components/site/Works";
+import { ProjectLead } from "@/components/site/ProjectLead";
 import { About } from "@/components/site/About";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 
+const TITLE = "Kreatech — Digitaalsed lahendused, mis töötavad";
+const DESCRIPTION =
+  "Kreatech on Eesti tarkvarastuudio: ReactJSi arendus, WordPressi ja Statamicu lahendused, süsteemide haldus ja tehniline projektijuhtimine.";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kreatech — Digitaalsed lahendused, mis töötavad" },
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
       {
-        name: "description",
+        name: "keywords",
         content:
-          "Kreatech on Eesti tarkvarastuudio: ReactJSi arendus, WordPressi ja Statamicu lahendused ning süsteemide haldus.",
+          "Kreatech, tarkvara arendus, ReactJS, WordPress, Statamic, süsteemide haldus, projektijuhtimine, Eesti",
       },
-      { property: "og:title", content: "Kreatech — Digitaalsed lahendused" },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { property: "og:site_name", content: "Kreatech" },
+      { property: "og:locale", content: "et_EE" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
       {
-        property: "og:description",
-        content:
-          "Tarkvara arendus, WordPress ja Statamic, süsteemide haldus. Väike tiim, suur tähelepanu detailile.",
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "Kreatech",
+          url: "/",
+          description: DESCRIPTION,
+          sameAs: [],
+        }),
       },
     ],
   }),
@@ -33,7 +57,9 @@ function Index() {
       <Nav />
       <Hero />
       <Services />
+      <Process />
       <Works />
+      <ProjectLead />
       <About />
       <Contact />
       <Footer />
