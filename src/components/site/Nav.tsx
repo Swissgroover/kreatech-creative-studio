@@ -80,5 +80,6 @@ export function Nav() {
         </a>
       </nav>
     </motion.header>
+    </>
   );
 }
