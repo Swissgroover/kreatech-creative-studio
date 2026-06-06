@@ -14,16 +14,14 @@ export const dict = {
       badge: "Eesti tarkvarastuudio",
       words: ["Loome", "digitaalseid", "lahendusi,", "mis", "töötavad."],
       italicWord: "lahendusi,",
-      lead:
-        "Kreatech ehitab veebirakendusi, hoiab töös süsteeme ja annab uue elu olemasolevatele WordPressi- ning Statamicu-saitidele. Väike tiim, suur tähelepanu detailile.",
+      lead: "Kreatech ehitab veebirakendusi, hoiab töös süsteeme ja annab uue elu olemasolevatele WordPressi- ning Statamicu-saitidele. Väike tiim, suur tähelepanu detailile.",
       ctaPrimary: "Alusta projekti",
       ctaSecondary: "Vaata töid",
-      scroll: "Keri",
     },
     services: {
       eyebrow: "/ Teenused",
-      title: ["Mida me ", "teeme", "."],
-      sub: "Neli põhisuunda — kõik need oskame korralikult. Vali üks või kombineeri.",
+      title: ["Mida me ", "teeme", "?"],
+      sub: "Neli põhisuunda — Vali üks või kombineeri.",
       items: [
         {
           title: "Tarkvara arendus",
@@ -76,21 +74,58 @@ export const dict = {
       sub: "Väike valik tööd, millega oleme rahul. Pikem nimekiri tuleb tutvustusel.",
       items: [
         {
-          title: "Projecting",
+          title: "Projecting – Ettevõtluskoolitused ja projektinõustamine",
           tag: "WordPress · TutorLMS",
           href: "https://projecting.ee/",
-          image: "/__l5e/assets-v1/2946fa30-2598-439c-9b60-5880e5bbf534/projecting.png",
+          image: "/public/images/projecting.png",
         },
-        { title: "Projekt nimi 2", tag: "WordPress · E-pood", href: "", image: "" },
-        { title: "Projekt nimi 3", tag: "Statamic · Portfolio", href: "", image: "" },
-        { title: "Projekt nimi 4", tag: "Süsteemihaldus", href: "", image: "" },
-        { title: "Projekt nimi 5", tag: "ReactJS · Dashboard", href: "", image: "" },
-        { title: "Projekt nimi 6", tag: "WordPress · Korporatiiv", href: "", image: "" },
+        {
+          title: "Haeska Farm – Farmi haldus tarkvara",
+          tag: "ReactJS · Node",
+          href: "https://farm-view-live.vercel.app/",
+          image: "/public/images/haeska.png",
+        },
+        {
+          title: "Solaris Kliima – Küttelahendused ja kliimaseadmed",
+          tag: "ReactJS · GSAP",
+          href: "https://solariskliima.vercel.app/",
+          image: "/public/images/solaris.png",
+        },
+        {
+          title: "BabyCool – Innovaatiline mahe beebitoit",
+          tag: "Statamic",
+          href: "https://babycoolfood.com/",
+          image: "/public/images/babycoolfood.png",
+        },
+        {
+          title: "Alar Truu – Fotograaf",
+          tag: "Statamic · Portfoolio",
+          href: "https://alartruu.com/",
+          image: "/public/images/Alar.png",
+        },
+        {
+          title: "Kalma Ehitus – Ehitus- ja renoveerimistööd",
+          tag: "Statamic",
+          href: "https://kalmaehitus.ee/",
+          image: "/public/images/kalma.png",
+        },
+        {
+          title: "Rebel Moto",
+          tag: "Wordpress · E-pood",
+          href: "https://www.rebelmoto.ee/",
+          image: "/public/images/rebelmoto.png",
+        },
+        {
+          title: "Kuressaare Täiskasvanute Gümnaasium",
+          tag: "Statamic · Korporatiiv",
+          href: "https://www.ktg.edu.ee/",
+          image: "/public/images/ktg.png",
+        },
       ],
     },
     lead: {
       eyebrow: "/ Võta meid projektijuhiks",
-      title: ["Sul on ", "arendusmeeskond", ". Sul puudub inimene, ", "kes neist aru saab."],
+      title: ["Sul on ", "arendusmeeskond", ", kuid sul puudub inimene, ", "kes neist aru saab."],
       sub: "Astume sisse tehnilise projektijuhina — räägime mõlema poole keelt. Sina mõtled ärile, meie hoiame, et arendus liigub õiges suunas, õigel ajal ja õige hinnaga.",
       bullets: [
         "Tõlgime su äriidee tehniliseks plaaniks",
@@ -101,7 +136,7 @@ export const dict = {
       cta: "Räägime sinu projektist",
       stats: [
         { k: "Vastus", v: "< 24h" },
-        { k: "Iteratsioon", v: "1–2 näd" },
+        { k: "Iteratsioon", v: "1–2 nädalat" },
         { k: "Skoobi muutus", v: "läbipaistev" },
         { k: "Raport", v: "iganädalane" },
       ],
@@ -113,8 +148,8 @@ export const dict = {
       foundedLabel: "Asutatud",
       projectsLabel: "Projekte",
       team: [
-        { name: "Eesnimi Perekonnanimi", role: "Asutaja · Arendaja" },
-        { name: "Eesnimi Perekonnanimi", role: "Arendaja · Süsteemid" },
+        { name: "Karl Gregor Rauniste", role: "Projektijuht · Arendaja" },
+        { name: "Gen Vikat", role: "Arendaja · Süsteemid" },
       ],
     },
     faq: {
@@ -180,8 +215,7 @@ export const dict = {
       badge: "Estonian software studio",
       words: ["We", "build", "digital products", "that", "work."],
       italicWord: "digital products",
-      lead:
-        "Kreatech builds web applications, keeps systems running and gives WordPress and Statamic sites a new life. Small team, big attention to detail.",
+      lead: "Kreatech builds web applications, keeps systems running and gives WordPress and Statamic sites a new life. Small team, big attention to detail.",
       ctaPrimary: "Start a project",
       ctaSecondary: "See our work",
       scroll: "Scroll",
@@ -256,7 +290,12 @@ export const dict = {
     },
     lead: {
       eyebrow: "/ Hire us as your project lead",
-      title: ["You have a ", "dev team", ". You're missing the person ", "who actually understands them."],
+      title: [
+        "You have a ",
+        "dev team",
+        ". You're missing the person ",
+        "who actually understands them.",
+      ],
       sub: "We step in as your technical project lead — we speak both languages. You focus on the business, we make sure development moves in the right direction, on time and on budget.",
       bullets: [
         "We translate your business idea into a technical plan",

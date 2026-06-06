@@ -22,24 +22,6 @@ export function About() {
               <p className="mt-8 max-w-md text-base text-muted-foreground md:text-lg">
                 {t.about.sub}
               </p>
-              <dl className="mt-12 grid grid-cols-2 gap-8">
-                <div>
-                  <dt className="text-xs uppercase tracking-widest text-muted-foreground">
-                    {t.about.foundedLabel}
-                  </dt>
-                  <dd className="mt-1 font-display text-3xl font-semibold text-foreground">
-                    2019
-                  </dd>
-                </div>
-                <div>
-                  <dt className="text-xs uppercase tracking-widest text-muted-foreground">
-                    {t.about.projectsLabel}
-                  </dt>
-                  <dd className="mt-1 font-display text-3xl font-semibold text-accent">
-                    40+
-                  </dd>
-                </div>
-              </dl>
             </Reveal>
           </div>
 
