@@ -75,12 +75,17 @@ export const dict = {
       title: ["Valitud ", "projektid", "."],
       sub: "Väike valik tööd, millega oleme rahul. Pikem nimekiri tuleb tutvustusel.",
       items: [
-        { title: "Projekt nimi 1", tag: "ReactJS · SaaS" },
-        { title: "Projekt nimi 2", tag: "WordPress · E-pood" },
-        { title: "Projekt nimi 3", tag: "Statamic · Portfolio" },
-        { title: "Projekt nimi 4", tag: "Süsteemihaldus" },
-        { title: "Projekt nimi 5", tag: "ReactJS · Dashboard" },
-        { title: "Projekt nimi 6", tag: "WordPress · Korporatiiv" },
+        {
+          title: "Projecting",
+          tag: "WordPress · TutorLMS",
+          href: "https://projecting.ee/",
+          image: "/__l5e/assets-v1/2946fa30-2598-439c-9b60-5880e5bbf534/projecting.png",
+        },
+        { title: "Projekt nimi 2", tag: "WordPress · E-pood", href: "", image: "" },
+        { title: "Projekt nimi 3", tag: "Statamic · Portfolio", href: "", image: "" },
+        { title: "Projekt nimi 4", tag: "Süsteemihaldus", href: "", image: "" },
+        { title: "Projekt nimi 5", tag: "ReactJS · Dashboard", href: "", image: "" },
+        { title: "Projekt nimi 6", tag: "WordPress · Korporatiiv", href: "", image: "" },
       ],
     },
     lead: {
