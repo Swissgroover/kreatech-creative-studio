@@ -241,12 +241,17 @@ export const dict = {
       title: ["Selected ", "projects", "."],
       sub: "A small selection of work we're proud of. Full list available on request.",
       items: [
-        { title: "Project name 1", tag: "ReactJS · SaaS" },
-        { title: "Project name 2", tag: "WordPress · E-commerce" },
-        { title: "Project name 3", tag: "Statamic · Portfolio" },
-        { title: "Project name 4", tag: "Systems management" },
-        { title: "Project name 5", tag: "ReactJS · Dashboard" },
-        { title: "Project name 6", tag: "WordPress · Corporate" },
+        {
+          title: "Projecting",
+          tag: "WordPress · TutorLMS",
+          href: "https://projecting.ee/",
+          image: "/__l5e/assets-v1/2946fa30-2598-439c-9b60-5880e5bbf534/projecting.png",
+        },
+        { title: "Project name 2", tag: "WordPress · E-commerce", href: "", image: "" },
+        { title: "Project name 3", tag: "Statamic · Portfolio", href: "", image: "" },
+        { title: "Project name 4", tag: "Systems management", href: "", image: "" },
+        { title: "Project name 5", tag: "ReactJS · Dashboard", href: "", image: "" },
+        { title: "Project name 6", tag: "WordPress · Corporate", href: "", image: "" },
       ],
     },
     lead: {
