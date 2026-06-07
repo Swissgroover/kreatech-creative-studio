@@ -229,7 +229,7 @@ export const dict = {
     services: {
       eyebrow: "/ Services",
       title: ["What we ", "do", "."],
-      sub: "Four core capabilities — Pick one or combine.",
+      sub: "Five core capabilities — Pick one or combine.",
       items: [
         {
           title: "Software development",
@@ -250,6 +250,11 @@ export const dict = {
           title: "WordPress maintenance",
           desc: "Security updates, performance, backups and content help — all in one place.",
           tags: ["Security", "Speed", "Support"],
+        },
+        {
+          title: "Software analysis & project writing",
+          desc: "We turn your business need into a technical solution — analysis, scope, architecture and a solid project document you can build from or submit for funding.",
+          tags: ["Analysis", "Scope", "Documentation"],
         },
       ],
     },
