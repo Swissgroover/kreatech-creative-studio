@@ -11,21 +11,18 @@ type WorkItem = { title: string; tag: string; href: string; image: string };
 
 export function Works() {
   const { t } = useLang();
-  const [paused, setPaused] = useState(false);
-  const { trackRef, x } = useMarquee({ speed: 40, paused });
+  const [hoverPaused, setHoverPaused] = useState(false);
+  const [dragPaused, setDragPaused] = useState(false);
+  const { trackRef, x, setWidth } = useMarquee({
+    speed: 70,
+    paused: hoverPaused || dragPaused,
+  });
 
   const items = t.works.items as readonly WorkItem[];
   const loop = [...items, ...items];
 
   return (
-    <section
-      id="works"
-      className="relative py-24 md:py-32 overflow-hidden"
-      onMouseEnter={() => setPaused(true)}
-      onMouseLeave={() => setPaused(false)}
-      onTouchStart={() => setPaused(true)}
-      onTouchEnd={() => setPaused(false)}
-    >
+    <section id="works" className="relative py-24 md:py-32 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="mb-12 flex items-end justify-between gap-6">
@@ -50,19 +47,39 @@ export function Works() {
         <motion.div
           ref={trackRef}
           style={{ x }}
-          className="flex gap-6 w-max will-change-transform"
+          drag="x"
+          dragMomentum
+          dragElastic={0.05}
+          onDragStart={() => setDragPaused(true)}
+          onDragEnd={() => setDragPaused(false)}
+          onDrag={(_, info) => {
+            if (setWidth === 0) return;
+            let next = x.get() + info.delta.x;
+            // keep within one set width for seamless loop
+            if (next <= -setWidth) next += setWidth;
+            if (next > 0) next -= setWidth;
+            x.set(next);
+          }}
+          className="flex gap-6 w-max will-change-transform cursor-grab active:cursor-grabbing"
         >
           {loop.map((w, i) => (
-            <WorkCard
+            <div
               key={i}
-              title={w.title}
-              tag={w.tag}
-              href={w.href}
-              image={w.image}
-              index={i % items.length}
-              total={items.length}
-              fallbackColor={FALLBACK_COLORS[i % FALLBACK_COLORS.length]}
-            />
+              onMouseEnter={() => setHoverPaused(true)}
+              onMouseLeave={() => setHoverPaused(false)}
+              onTouchStart={() => setHoverPaused(true)}
+              onTouchEnd={() => setHoverPaused(false)}
+            >
+              <WorkCard
+                title={w.title}
+                tag={w.tag}
+                href={w.href}
+                image={w.image}
+                index={i % items.length}
+                total={items.length}
+                fallbackColor={FALLBACK_COLORS[i % FALLBACK_COLORS.length]}
+              />
+            </div>
           ))}
         </motion.div>
 
