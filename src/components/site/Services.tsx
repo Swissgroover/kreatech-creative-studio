@@ -17,15 +17,20 @@ export function Services() {
       const track = trackRef.current!;
       const mm = gsap.matchMedia();
       mm.add("(min-width: 768px)", () => {
+        const getNavOffset = () => {
+          const nav = document.querySelector("header, nav");
+          return nav ? (nav as HTMLElement).getBoundingClientRect().height : 80;
+        };
         const distance = track.scrollWidth - window.innerWidth + 96;
         gsap.to(track, {
           x: -distance,
           ease: "none",
           scrollTrigger: {
             trigger: wrapRef.current,
-            start: "top top",
+            start: () => `top ${getNavOffset()}px`,
             end: () => `+=${distance}`,
             pin: true,
+            pinSpacing: true,
             scrub: 1,
             invalidateOnRefresh: true,
           },
