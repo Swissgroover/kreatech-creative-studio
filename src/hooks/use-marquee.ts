@@ -34,5 +34,5 @@ export function useMarquee({ speed = 40, paused = false }: { speed?: number; pau
     x.set(next);
   });
 
-  return { trackRef, x };
+  return { trackRef, x, setWidth };
 }
