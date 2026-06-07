@@ -22,7 +22,7 @@ export const dict = {
     services: {
       eyebrow: "/ Teenused",
       title: ["Mida me ", "teeme", "?"],
-      sub: "Neli põhisuunda — Vali üks või kombineeri.",
+      sub: "Viis põhisuunda — Vali üks või kombineeri.",
       items: [
         {
           title: "Tarkvara arendus",
@@ -43,6 +43,11 @@ export const dict = {
           title: "WordPressi hooldus",
           desc: "Turvauuendused, kiiruseoptimeerimine, varundus ja sisuabi — kõik ühest kohast.",
           tags: ["Turvalisus", "Speed", "Tugi"],
+        },
+        {
+          title: "Tarkvara analüüs & projektide kirjutamine",
+          desc: "Aitame ärilise vajaduse tehniliseks lahenduseks tõlkida — analüüs, skoop, arhitektuur ja korralik projektidokument, mille pealt saab arendada või toetustaotluse esitada.",
+          tags: ["Analüüs", "Skoop", "Dokumentatsioon"],
         },
       ],
     },
