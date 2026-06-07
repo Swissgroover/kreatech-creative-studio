@@ -22,7 +22,7 @@ export const dict = {
     services: {
       eyebrow: "/ Teenused",
       title: ["Mida me ", "teeme", "?"],
-      sub: "Neli põhisuunda — Vali üks või kombineeri.",
+      sub: "Viis põhisuunda — Vali üks või kombineeri.",
       items: [
         {
           title: "Tarkvara arendus",
@@ -43,6 +43,11 @@ export const dict = {
           title: "WordPressi hooldus",
           desc: "Turvauuendused, kiiruseoptimeerimine, varundus ja sisuabi — kõik ühest kohast.",
           tags: ["Turvalisus", "Speed", "Tugi"],
+        },
+        {
+          title: "Tarkvara analüüs & projektide kirjutamine",
+          desc: "Aitame ärilise vajaduse tehniliseks lahenduseks tõlkida — analüüs, skoop, arhitektuur ja korralik projektidokument, mille pealt saab arendada või toetustaotluse esitada.",
+          tags: ["Analüüs", "Skoop", "Dokumentatsioon"],
         },
       ],
     },
@@ -224,7 +229,7 @@ export const dict = {
     services: {
       eyebrow: "/ Services",
       title: ["What we ", "do", "."],
-      sub: "Four core capabilities — Pick one or combine.",
+      sub: "Five core capabilities — Pick one or combine.",
       items: [
         {
           title: "Software development",
@@ -245,6 +250,11 @@ export const dict = {
           title: "WordPress maintenance",
           desc: "Security updates, performance, backups and content help — all in one place.",
           tags: ["Security", "Speed", "Support"],
+        },
+        {
+          title: "Software analysis & project writing",
+          desc: "We turn your business need into a technical solution — analysis, scope, architecture and a solid project document you can build from or submit for funding.",
+          tags: ["Analysis", "Scope", "Documentation"],
         },
       ],
     },
