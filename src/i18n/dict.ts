@@ -11,7 +11,6 @@ export const dict = {
       cta: "Räägi meiega",
     },
     hero: {
-      badge: "Eesti tarkvarastuudio",
       words: ["Loome", "digitaalseid", "lahendusi,", "mis", "töötavad."],
       italicWord: "lahendusi,",
       lead: "Kreatech ehitab veebirakendusi, hoiab töös süsteeme ja annab uue elu olemasolevatele WordPressi- ning Statamicu-saitidele. Väike tiim, suur tähelepanu detailile.",
@@ -218,7 +217,6 @@ export const dict = {
       cta: "Get in touch",
     },
     hero: {
-      badge: "Eesti tarkvarastuudio",
       words: ["We", "build", "digital products", "that", "work."],
       italicWord: "digital products",
       lead: "Kreatech builds web applications, keeps systems running and gives WordPress and Statamic sites a new life. Small team, big attention to detail.",
