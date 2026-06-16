@@ -30,15 +30,6 @@ export function Hero() {
       <div className="absolute inset-0 -z-10 noise-overlay opacity-[0.15]" />
 
       <div className="mx-auto w-full max-w-7xl px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-surface/40 px-4 py-1.5 text-xs uppercase tracking-widest text-muted-foreground backdrop-blur"
-        >
-          <span className="size-1.5 animate-pulse rounded-full bg-accent" />
-          {t.hero.badge}
-        </motion.div>
 
         <h1 className="font-display text-5xl font-semibold leading-[0.95] tracking-tight text-balance sm:text-7xl md:text-[8.5rem]">
           {t.hero.words.map((w, i) => (
