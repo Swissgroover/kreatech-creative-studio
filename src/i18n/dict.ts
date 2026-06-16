@@ -218,7 +218,7 @@ export const dict = {
       cta: "Get in touch",
     },
     hero: {
-      badge: "Estonian software studio",
+      badge: "Eesti tarkvarastuudio",
       words: ["We", "build", "digital products", "that", "work."],
       italicWord: "digital products",
       lead: "Kreatech builds web applications, keeps systems running and gives WordPress and Statamic sites a new life. Small team, big attention to detail.",
