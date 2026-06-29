@@ -76,6 +76,8 @@ export const dict = {
     works: {
       eyebrow: "/ Tehtud tööd",
       title: ["Valitud ", "projektid", "."],
+      sub: "Väike valik projekte, mille üle uhked oleme. Täielik nimekiri saadaval päringu peale.",
+
       items: [
         {
           title: "Projecting – Ettevõtluskoolitused ja projektinõustamine",
