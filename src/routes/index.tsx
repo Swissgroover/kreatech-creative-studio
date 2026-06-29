@@ -68,10 +68,16 @@ export const Route = createFileRoute("/")({
       { property: "og:url", content: "/" },
       { property: "og:site_name", content: "Kreatech" },
       { property: "og:locale", content: "et_EE" },
+      { property: "og:image", content: "/images/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Kreatech – tarkvara- ja veebiarendus" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
+      { name: "twitter:image", content: "/images/og-image.png" },
     ],
+
     links: [{ rel: "canonical", href: "/" }],
     scripts: [
       {
