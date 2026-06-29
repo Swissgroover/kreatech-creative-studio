@@ -77,13 +77,100 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Kreatech App" },
-      { name: "description", content: "Kreatech Generated Project" },
-      { name: "author", content: "K/G/R" },
-      { property: "og:title", content: "Kreatech App" },
-      { property: "og:description", content: "Kreatech Generated Project" },
-      { property: "og:type", content: "website" },
+      {
+        name: "viewport",
+        content: "width=device-width, initial-scale=1",
+      },
+      {
+        title: "Kreatech – Tarkvaraarendus, Veebilahendused ja AI Lahendused Eestis",
+      },
+      {
+        name: "description",
+        content:
+          "Kreatech arendab kaasaegseid veebilahendusi, infosüsteeme, e-poode, äritarkvara ja AI-põhiseid lahendusi. Loome kiireid, turvalisi ja skaleeritavaid digitooteid ettevõtetele Eestis ja rahvusvaheliselt.",
+      },
+      {
+        name: "keywords",
+        content:
+          "Kreatech, tarkvaraarendus, veebiarendus, veebilehed, e-poed, AI lahendused, tehisintellekt, Laravel, React, Vue, TypeScript, API arendus, infosüsteemid, custom software, SaaS, Eesti tarkvarafirma",
+      },
+      {
+        name: "author",
+        content: "K/G/R",
+      },
+      {
+        name: "robots",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
+      {
+        name: "googlebot",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
+      {
+        name: "theme-color",
+        content: "#0f172a",
+      },
+      {
+        name: "application-name",
+        content: "Kreatech",
+      },
+      {
+        property: "og:site_name",
+        content: "Kreatech",
+      },
+      {
+        property: "og:title",
+        content: "Kreatech – Tarkvaraarendus ja AI Lahendused",
+      },
+      {
+        property: "og:description",
+        content:
+          "Loome kvaliteetseid veebilahendusi, infosüsteeme, e-poode ning AI-põhiseid tarkvaralahendusi ettevõtetele.",
+      },
+      {
+        property: "og:type",
+        content: "website",
+      },
+      {
+        property: "og:locale",
+        content: "et_EE",
+      },
+      {
+        property: "og:url",
+        content: "https://kreatech.ee",
+      },
+      {
+        property: "og:image",
+        content: "https://kreatech.ee/og-image.png",
+      },
+      {
+        property: "og:image:width",
+        content: "1200",
+      },
+      {
+        property: "og:image:height",
+        content: "630",
+      },
+      {
+        property: "twitter:card",
+        content: "summary_large_image",
+      },
+      {
+        property: "twitter:title",
+        content: "Kreatech – Tarkvaraarendus ja AI Lahendused",
+      },
+      {
+        property: "twitter:description",
+        content: "Kaasaegsed veebilahendused, infosüsteemid ja AI-põhine tarkvaraarendus.",
+      },
+      {
+        property: "twitter:image",
+        content: "https://kreatech.ee/og-image.jpg",
+      },
+      {
+        name: "format-detection",
+        content: "telephone=no",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
