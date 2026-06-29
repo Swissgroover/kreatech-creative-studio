@@ -10,9 +10,12 @@ import { FAQ } from "@/components/site/FAQ";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 
-const TITLE = "Kreatech — Tarkvara arendus, ReactJS, WordPress & Statamic | Eesti";
+const TITLE = "Kreatech – Tarkvaraarendus, Veebilahendused ja AI Lahendused Eestis";
 const DESCRIPTION =
-  "Kreatech on Eesti tarkvara- ja veebiarenduse stuudio. Ehitame ReactJS-i äppide, WordPressi ja Statamicu veebisaitide, süsteemide halduse ja tehnilise projektijuhtimise lahendusi.";
+  "Kreatech arendab kaasaegseid veebilahendusi, infosüsteeme, e-poode, äritarkvara ja AI-põhiseid lahendusi. Loome kiireid, turvalisi ja skaleeritavaid digitooteid ettevõtetele Eestis ja rahvusvaheliselt.";
+const OG_TITLE = "Kreatech – Tarkvaraarendus ja AI Lahendused";
+const OG_DESCRIPTION =
+  "Loome kvaliteetseid veebilahendusi, infosüsteeme, e-poode ning AI-põhiseid tarkvaralahendusi ettevõtetele.";
 
 const faqData = [
   {
@@ -55,30 +58,47 @@ const faqData = [
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: TITLE },
       { name: "description", content: DESCRIPTION },
       {
         name: "keywords",
         content:
-          "tarkvara arendus, veebiarendus, ReactJS arendus, WordPress arendus, Statamic CMS, projektijuhtimine, süsteemide haldus, veebilehe tegemine, Eesti arendusettevõte, tarkvarastuudio, digilahendused, frontend arendus, full-stack arendus, veebilahendused",
+          "Kreatech, tarkvaraarendus, veebiarendus, veebilehed, e-poed, AI lahendused, tehisintellekt, Laravel, React, Vue, TypeScript, API arendus, infosüsteemid, custom software, SaaS, Eesti tarkvarafirma",
       },
-      { property: "og:title", content: TITLE },
-      { property: "og:description", content: DESCRIPTION },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
+      { name: "author", content: "Kreatech" },
+      {
+        name: "robots",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
+      {
+        name: "googlebot",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
+      { name: "theme-color", content: "#0f172a" },
+      { name: "application-name", content: "Kreatech" },
+      { name: "format-detection", content: "telephone=no" },
       { property: "og:site_name", content: "Kreatech" },
+      { property: "og:title", content: OG_TITLE },
+      { property: "og:description", content: OG_DESCRIPTION },
+      { property: "og:type", content: "website" },
       { property: "og:locale", content: "et_EE" },
-      { property: "og:image", content: "/images/og-image.png" },
+      { property: "og:url", content: "https://kreatech.ee" },
+      { property: "og:image", content: "https://kreatech.ee/images/og-image.png" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
       { property: "og:image:alt", content: "Kreatech – tarkvara- ja veebiarendus" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: TITLE },
-      { name: "twitter:description", content: DESCRIPTION },
-      { name: "twitter:image", content: "/images/og-image.png" },
+      { name: "twitter:title", content: OG_TITLE },
+      {
+        name: "twitter:description",
+        content: "Kaasaegsed veebilahendused, infosüsteemid ja AI-põhine tarkvaraarendus.",
+      },
+      { name: "twitter:image", content: "https://kreatech.ee/images/og-image.png" },
     ],
 
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://kreatech.ee/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -89,14 +109,18 @@ export const Route = createFileRoute("/")({
               "@type": "Organization",
               "@id": "https://kreatech.ee/#organization",
               name: "Kreatech",
-              url: "/",
-              description: DESCRIPTION,
-              sameAs: [],
+              url: "https://kreatech.ee",
+              logo: "https://kreatech.ee/logo.png",
+              description: "Tarkvaraarendus, veebiarendus ja AI lahendused.",
+              sameAs: [
+                "https://www.linkedin.com/company/kreatech",
+                "https://github.com/kreatech",
+              ],
             },
             {
               "@type": "WebSite",
               "@id": "https://kreatech.ee/#website",
-              url: "/",
+              url: "https://kreatech.ee",
               name: "Kreatech",
               publisher: { "@id": "https://kreatech.ee/#organization" },
               inLanguage: "et",
@@ -107,10 +131,7 @@ export const Route = createFileRoute("/")({
               mainEntity: faqData.map((f) => ({
                 "@type": "Question",
                 name: f.question,
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: f.answer,
-                },
+                acceptedAnswer: { "@type": "Answer", text: f.answer },
               })),
             },
           ],
