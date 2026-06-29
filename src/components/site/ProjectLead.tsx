@@ -52,30 +52,6 @@ export function ProjectLead() {
                 <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
               </a>
             </Reveal>
-
-            <Reveal className="md:col-span-5" delay={0.15}>
-              <div className="relative">
-                <div className="grid grid-cols-2 gap-4">
-                  {t.lead.stats.map((c, i) => (
-                    <motion.div
-                      key={c.k}
-                      initial={{ opacity: 0, y: 24 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-40px" }}
-                      transition={{ duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-                      className="rounded-2xl border border-border bg-background/60 p-4 sm:p-6"
-                    >
-                      <div className="text-[10px] uppercase tracking-widest text-muted-foreground sm:text-xs">
-                        {c.k}
-                      </div>
-                      <div className="mt-2 font-display text-xl font-semibold text-foreground [overflow-wrap:anywhere] sm:text-2xl">
-                        {c.v}
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
           </div>
         </div>
       </div>

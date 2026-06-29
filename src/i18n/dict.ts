@@ -68,15 +68,14 @@ export const dict = {
           desc: "Iga 1–2 nädala tagant midagi nähtavat. Sa näed edenemist, anname infot ja muudame suunda kiiresti kui vaja.",
         },
         {
-          title: "Käivitus & hooldus",
-          desc: "Stabiilne deploy, monitooring, varundus ja pidev tugi. Süsteem ei jää üksi pärast launchi.",
+          title: "Haldus & hooldus",
+          desc: "Stabiilne haldus, monitooring, varundus ja pidev tugi. Süsteem ei jää üksi pärast launchi.",
         },
       ],
     },
     works: {
       eyebrow: "/ Tehtud tööd",
       title: ["Valitud ", "projektid", "."],
-      sub: "Väike valik tööd, millega oleme rahul. Pikem nimekiri tuleb tutvustusel.",
       items: [
         {
           title: "Projecting – Ettevõtluskoolitused ja projektinõustamine",
@@ -139,17 +138,11 @@ export const dict = {
         "Toome iga nädal raporti ja konkreetsed otsused",
       ],
       cta: "Räägime sinu projektist",
-      stats: [
-        { k: "Vastus", v: "< 24h" },
-        { k: "Iteratsioon", v: "1–2 nädalat" },
-        { k: "Skoobi muutus", v: "läbipaistev" },
-        { k: "Raport", v: "näd" },
-      ],
     },
     about: {
       eyebrow: "/ Meist",
-      title: ["Kaks inimest, ", "üks tiim", "."],
-      sub: "Oleme väike Eesti stuudio. Töötame otse — ilma vahendajate, pikkade koosolekute ja tühjade lubadusteta. Sa räägid inimestega, kes su koodi ka päriselt kirjutavad.",
+      title: ["Kolm inimest, ", "üks tiim", "."],
+      sub: "Oleme väike meeskond. Töötame otse — ilma vahendajate, pikkade koosolekute ja tühjade lubadusteta. Sa räägid inimestega, kes su koodi ka päriselt kirjutavad.",
       foundedLabel: "Asutatud",
       projectsLabel: "Projekte",
       team: [

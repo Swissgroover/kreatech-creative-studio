@@ -40,7 +40,7 @@ export function Nav() {
       >
         <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <a href="#top" className="group flex items-center gap-2">
-            <span className="size-2.5 rounded-full bg-primary transition-all duration-500 group-hover:bg-accent group-hover:shadow-[0_0_24px] group-hover:shadow-accent" />
+           
             <span className="font-display text-lg font-semibold tracking-tight">
               Kreatech
             </span>

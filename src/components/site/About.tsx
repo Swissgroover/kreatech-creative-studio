@@ -3,7 +3,6 @@ import { useLang } from "@/i18n/lang";
 
 export function About() {
   const { t } = useLang();
-  const team = t.about.team as readonly { name: string; role: string; image: string }[];
 
   return (
     <section id="about" className="relative py-24 md:py-32">
@@ -23,37 +22,6 @@ export function About() {
                 {t.about.sub}
               </p>
             </Reveal>
-          </div>
-
-          <div className="md:col-span-7">
-            <div className="grid gap-6 sm:grid-cols-2">
-              {team.map((m, i) => (
-                <Reveal key={i} delay={i * 0.1}>
-                  <article className="group relative overflow-hidden rounded-3xl border border-border bg-surface p-6">
-                    <div className="relative aspect-square overflow-hidden rounded-2xl bg-surface-2">
-                      {m.image ? (
-                        <img
-                          src={m.image}
-                          alt={m.name}
-                          className="size-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                      ) : (
-                        <div className="flex size-full items-center justify-center">
-                          <div className="flex size-24 items-center justify-center rounded-full bg-primary/20 font-display text-3xl text-primary">
-                            {String.fromCharCode(75 + i)}
-                          </div>
-                        </div>
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
-                    </div>
-                    <div className="mt-5">
-                      <h3 className="font-display text-xl font-semibold">{m.name}</h3>
-                      <p className="mt-1 text-sm text-muted-foreground">{m.role}</p>
-                    </div>
-                  </article>
-                </Reveal>
-              ))}
-            </div>
           </div>
         </div>
       </div>
