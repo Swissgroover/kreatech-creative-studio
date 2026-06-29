@@ -87,16 +87,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Kreatech arendab kaasaegseid veebilahendusi, infosüsteeme, e-poode, äritarkvara ja AI-põhiseid lahendusi. Loome kiireid, turvalisi ja skaleeritavaid digitooteid ettevõtetele Eestis ja rahvusvaheliselt.",
-      },
-      {
-        name: "keywords",
-        content:
-          "Kreatech, tarkvaraarendus, veebiarendus, veebilehed, e-poed, AI lahendused, tehisintellekt, Laravel, React, Vue, TypeScript, API arendus, infosüsteemid, custom software, SaaS, Eesti tarkvarafirma",
+          "Kreatech arendab kaasaegseid veebilahendusi, infosüsteeme, e-poode, äritarkvara ja AI-põhiseid lahendusi.",
       },
       {
         name: "author",
-        content: "K/G/R",
+        content: "Kreatech",
       },
       {
         name: "robots",
@@ -119,15 +114,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "Kreatech",
       },
       {
-        property: "og:title",
-        content: "Kreatech – Tarkvaraarendus ja AI Lahendused",
-      },
-      {
-        property: "og:description",
-        content:
-          "Loome kvaliteetseid veebilahendusi, infosüsteeme, e-poode ning AI-põhiseid tarkvaralahendusi ettevõtetele.",
-      },
-      {
         property: "og:type",
         content: "website",
       },
@@ -136,44 +122,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "et_EE",
       },
       {
-        property: "og:url",
-        content: "https://kreatech.ee",
-      },
-      {
-        property: "og:image",
-        content: "https://kreatech.ee/og-image.png",
-      },
-      {
-        property: "og:image:width",
-        content: "1200",
-      },
-      {
-        property: "og:image:height",
-        content: "630",
-      },
-      {
-        property: "twitter:card",
-        content: "summary_large_image",
-      },
-      {
-        property: "twitter:title",
-        content: "Kreatech – Tarkvaraarendus ja AI Lahendused",
-      },
-      {
-        property: "twitter:description",
-        content: "Kaasaegsed veebilahendused, infosüsteemid ja AI-põhine tarkvaraarendus.",
-      },
-      {
-        property: "twitter:image",
-        content: "https://kreatech.ee/og-image.jpg",
-      },
-      {
         name: "format-detection",
         content: "telephone=no",
       },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -182,6 +137,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
     ],
   }),
+
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
