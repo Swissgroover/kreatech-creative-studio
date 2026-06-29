@@ -25,3 +25,5 @@ Allow: /
 
 User-agent: Applebot
 Allow: /
+
+Sitemap: https://kreatech.ee/sitemap.xml
