@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { PROJECTS, SERVICES } from "@/content/site";
 
 const BASE_URL = "https://kreatech.ee";
 
@@ -13,7 +14,21 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const entries: SitemapEntry[] = [{ path: "/", changefreq: "weekly", priority: "1.0" }];
+        const entries: SitemapEntry[] = [
+          { path: "/", changefreq: "weekly", priority: "1.0" },
+          { path: "/teenused", changefreq: "monthly", priority: "0.9" },
+          ...SERVICES.map((s) => ({
+            path: s.href,
+            changefreq: "monthly" as const,
+            priority: "0.8",
+          })),
+          { path: "/projektid", changefreq: "monthly", priority: "0.8" },
+          ...PROJECTS.map((p) => ({
+            path: `/projektid/${p.slug}`,
+            changefreq: "yearly" as const,
+            priority: "0.6",
+          })),
+        ];
 
         const urls = entries.map((e) =>
           [
