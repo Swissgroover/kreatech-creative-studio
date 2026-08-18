@@ -1,52 +1,55 @@
-import { useLayoutEffect, useRef, type ReactNode } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef, type ElementType, type ReactNode } from "react";
 
-gsap.registerPlugin(ScrollTrigger);
-
+/**
+ * Minimal, dependency-free entrance animation: a small fade + translate
+ * triggered once when the element enters the viewport.
+ */
 export function Reveal({
   children,
   delay = 0,
-  y = 48,
-  className,
+  className = "",
   as: As = "div",
 }: {
   children: ReactNode;
+  /** Delay in seconds. */
   delay?: number;
-  y?: number;
   className?: string;
-  as?: "div" | "section" | "article" | "li";
+  as?: ElementType;
 }) {
   const ref = useRef<HTMLElement>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        el,
-        { opacity: 0, y, filter: "blur(8px)" },
-        {
-          opacity: 1,
-          y: 0,
-          filter: "blur(0px)",
-          duration: 1.1,
-          delay,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            toggleActions: "play none none none",
-          },
-        },
-      );
-    }, el);
-    return () => ctx.revert();
-  }, [delay, y]);
+    const show = () => el.classList.add("is-visible");
 
-  const hiddenClass = "opacity-0";
-  const combinedClassName = className ? `${hiddenClass} ${className}` : hiddenClass;
+    if (typeof IntersectionObserver === "undefined") {
+      show();
+      return;
+    }
 
-  // @ts-expect-error dynamic element
-  return <As ref={ref} className={combinedClassName}>{children}</As>;
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            show();
+            io.disconnect();
+          }
+        }
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.05 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  return (
+    <As
+      ref={ref}
+      className={`reveal ${className}`}
+      style={{ ["--reveal-delay" as string]: `${Math.round(delay * 1000)}ms` }}
+    >
+      {children}
+    </As>
+  );
 }
