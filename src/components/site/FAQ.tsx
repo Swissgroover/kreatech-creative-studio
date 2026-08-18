@@ -58,7 +58,7 @@ export function FAQ() {
                     </span>
                     <span
                       aria-hidden="true"
-                      className={`mt-1 shrink-0 text-muted-foreground transition-all duration-400 group-hover:text-accent ${isOpen ? "rotate-45 text-accent" : ""}`}
+                      className={`mt-1 shrink-0 text-muted-foreground transition-all duration-300 group-hover:text-accent ${isOpen ? "rotate-45 text-accent" : ""}`}
                     >
                       <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
                         <path d="M10 4v12M4 10h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
