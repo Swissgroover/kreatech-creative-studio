@@ -103,7 +103,7 @@ export const dict = {
           type: "Veebiarendus, e-õppe keskkond",
           tech: "WordPress · TutorLMS",
           href: "https://projecting.ee/",
-          image: "/images/projecting.png",
+          image: "/images/projecting.webp",
         },
         {
           title: "Haeska Farm",
@@ -112,7 +112,7 @@ export const dict = {
           type: "Tarkvaraarendus",
           tech: "ReactJS · Node.js",
           href: "https://farm-view-live.vercel.app/",
-          image: "/images/haeska.png",
+          image: "/images/haeska.webp",
         },
         {
           title: "Solaris Kliima",
@@ -121,7 +121,7 @@ export const dict = {
           type: "Veebiarendus",
           tech: "ReactJS",
           href: "https://solariskliima.vercel.app/",
-          image: "/images/solaris.png",
+          image: "/images/solaris.webp",
         },
         {
           title: "BabyCool",
@@ -130,7 +130,7 @@ export const dict = {
           type: "Veebiarendus",
           tech: "Statamic",
           href: "https://babycoolfood.com/",
-          image: "/images/babycoolfood.png",
+          image: "/images/babycoolfood.webp",
         },
         {
           title: "Alar Truu",
@@ -139,7 +139,7 @@ export const dict = {
           type: "Veebiarendus",
           tech: "Statamic",
           href: "https://alartruu.com/",
-          image: "/images/Alar.png",
+          image: "/images/Alar.webp",
         },
         {
           title: "Kalma Ehitus",
@@ -148,7 +148,7 @@ export const dict = {
           type: "Veebiarendus",
           tech: "Statamic",
           href: "https://kalmaehitus.ee/",
-          image: "/images/kalma.png",
+          image: "/images/kalma.webp",
         },
         {
           title: "Rebel Moto",
@@ -157,7 +157,7 @@ export const dict = {
           type: "E-poe arendus",
           tech: "WordPress · WooCommerce",
           href: "https://www.rebelmoto.ee/",
-          image: "/images/rebelmoto.png",
+          image: "/images/rebelmoto.webp",
         },
         {
           title: "Kuressaare Täiskasvanute Gümnaasium",
@@ -166,7 +166,7 @@ export const dict = {
           type: "Veebiarendus",
           tech: "Statamic",
           href: "https://www.ktg.edu.ee/",
-          image: "/images/ktg.png",
+          image: "/images/ktg.webp",
         },
       ],
     },
@@ -392,7 +392,7 @@ export const dict = {
           type: "Web development, e-learning",
           tech: "WordPress · TutorLMS",
           href: "https://projecting.ee/",
-          image: "/images/projecting.png",
+          image: "/images/projecting.webp",
         },
         {
           title: "Haeska Farm",
@@ -401,7 +401,7 @@ export const dict = {
           type: "Software development",
           tech: "ReactJS · Node.js",
           href: "https://farm-view-live.vercel.app/",
-          image: "/images/haeska.png",
+          image: "/images/haeska.webp",
         },
         {
           title: "Solaris Kliima",
@@ -410,7 +410,7 @@ export const dict = {
           type: "Web development",
           tech: "ReactJS",
           href: "https://solariskliima.vercel.app/",
-          image: "/images/solaris.png",
+          image: "/images/solaris.webp",
         },
         {
           title: "BabyCool",
@@ -419,7 +419,7 @@ export const dict = {
           type: "Web development",
           tech: "Statamic",
           href: "https://babycoolfood.com/",
-          image: "/images/babycoolfood.png",
+          image: "/images/babycoolfood.webp",
         },
         {
           title: "Alar Truu",
@@ -428,7 +428,7 @@ export const dict = {
           type: "Web development",
           tech: "Statamic",
           href: "https://alartruu.com/",
-          image: "/images/Alar.png",
+          image: "/images/Alar.webp",
         },
         {
           title: "Kalma Ehitus",
@@ -437,7 +437,7 @@ export const dict = {
           type: "Web development",
           tech: "Statamic",
           href: "https://kalmaehitus.ee/",
-          image: "/images/kalma.png",
+          image: "/images/kalma.webp",
         },
         {
           title: "Rebel Moto",
@@ -446,7 +446,7 @@ export const dict = {
           type: "E-commerce development",
           tech: "WordPress · WooCommerce",
           href: "https://www.rebelmoto.ee/",
-          image: "/images/rebelmoto.png",
+          image: "/images/rebelmoto.webp",
         },
         {
           title: "Kuressaare Adult Gymnasium",
@@ -455,7 +455,7 @@ export const dict = {
           type: "Web development",
           tech: "Statamic",
           href: "https://www.ktg.edu.ee/",
-          image: "/images/ktg.png",
+          image: "/images/ktg.webp",
         },
       ],
     },
