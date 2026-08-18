@@ -29,16 +29,16 @@ export function Hero() {
       </div>
       <div className="absolute inset-0 -z-10 noise-overlay opacity-[0.15]" />
 
-      <div className="mx-auto w-full max-w-7xl px-6">
+      <div className="mx-auto w-full max-w-7xl px-6 py-16 md:py-24">
 
-        <h1 className="font-display text-5xl font-semibold leading-[0.95] tracking-tight text-balance sm:text-7xl md:text-[8.5rem]">
+        <h1 className="font-display text-[clamp(2.25rem,9vw,8.5rem)] font-semibold leading-[1.02] tracking-tight md:leading-[0.95]">
           {t.hero.words.map((w, i) => (
             <motion.span
               key={`${w}-${i}`}
               initial={{ opacity: 0, y: 80 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.15 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className={`mr-4 inline-block ${w === t.hero.italicWord ? "italic text-accent" : ""}`}
+              className={`mr-[0.25em] inline-block max-w-full [overflow-wrap:break-word] ${w === t.hero.italicWord ? "italic text-accent" : ""}`}
             >
               {w}
             </motion.span>
@@ -49,7 +49,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9 }}
-          className="mt-10 max-w-xl text-base text-muted-foreground md:text-lg"
+          className="mt-8 max-w-[60ch] text-base leading-relaxed text-muted-foreground md:mt-10 md:text-lg"
         >
           {t.hero.lead}
         </motion.p>
