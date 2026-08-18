@@ -5,7 +5,7 @@ export function About() {
   const { t } = useLang();
 
   return (
-    <section id="about" className="relative py-24 md:py-32">
+    <section id="about" aria-labelledby="about-heading" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid gap-16 md:grid-cols-12">
           <div className="md:col-span-5">
@@ -13,7 +13,7 @@ export function About() {
               <div className="mb-4 text-xs uppercase tracking-widest text-accent">
                 {t.about.eyebrow}
               </div>
-              <h2 className="font-display text-4xl font-semibold tracking-tight md:text-6xl">
+              <h2 id="about-heading" className="font-display text-4xl font-semibold tracking-tight md:text-6xl">
                 {t.about.title[0]}
                 <span className="italic text-primary">{t.about.title[1]}</span>
                 {t.about.title[2]}

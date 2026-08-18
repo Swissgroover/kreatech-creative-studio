@@ -22,6 +22,16 @@ export function Reveal({
   useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
+
+    const reducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reducedMotion) {
+      gsap.set(el, { opacity: 1, y: 0, filter: "none" });
+      return;
+    }
+
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el,
@@ -47,6 +57,16 @@ export function Reveal({
   const hiddenClass = "opacity-0";
   const combinedClassName = className ? `${hiddenClass} ${className}` : hiddenClass;
 
-  // @ts-expect-error dynamic element
-  return <As ref={ref} className={combinedClassName}>{children}</As>;
+  return (
+    <As
+      // @ts-expect-error dynamic element
+      ref={ref}
+      data-reveal=""
+      className={combinedClassName}
+    >
+      {children}
+    </As>
+  );
+
 }
+

@@ -27,13 +27,13 @@ type ViewTransitionDocument = Document & {
   startViewTransition?: (updateCallback: () => void) => { finished: Promise<void> };
 };
 
-function getInitialLang(): Lang {
-  if (typeof window === "undefined") return "et";
+function readStoredLang(): Lang | null {
+  if (typeof window === "undefined") return null;
   try {
     const saved = window.localStorage.getItem(STORAGE_KEY);
-    return saved === "en" || saved === "et" ? saved : "et";
+    return saved === "en" || saved === "et" ? saved : null;
   } catch {
-    return "et";
+    return null;
   }
 }
 
@@ -48,8 +48,16 @@ function refreshScrollAnimations() {
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>(getInitialLang);
+  // Always render Estonian on the server and on the first client render so
+  // hydration matches; a stored preference is applied right after mount.
+  const [lang, setLangState] = useState<Lang>("et");
   const [isSwitching, setIsSwitching] = useState(false);
+
+  useEffect(() => {
+    const saved = readStoredLang();
+    if (saved && saved !== "et") setLangState(saved);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Keep <html lang="..."> in sync for a11y / SEO.
   useEffect(() => {

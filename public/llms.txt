@@ -1,0 +1,29 @@
+# Kreatech
+
+> Kreatech (legal entity: Kreatech OÜ) is an Estonian technical development partner. It analyses existing websites and software, plans technical solutions, develops websites and business systems, and provides technical project management for companies without an in-house CTO.
+
+- Website: https://kreatech.ee/
+- Email: info@kreatech.ee
+- Languages: Estonian, English
+- Location: Estonia; works remotely with international clients
+
+## What Kreatech does
+
+- Analyses existing websites and software systems: architecture, performance, security, integrations, technical bottlenecks
+- Defines development needs and writes requirements/specifications for development projects
+- Technical SEO analysis: site structure, indexing, crawlability, performance, metadata, structured data, AI-search readiness
+- Software development: custom web applications and business systems (ReactJS, TypeScript, Node.js)
+- Web development: WordPress and Statamic websites, online stores, headless CMS setups
+- Integrations between existing systems (CRM, e-commerce, accounting, APIs)
+- Maintenance and further development of existing websites and software
+- Systems management and DevOps: servers, monitoring, backups, deployments
+- Technical project management: translating business needs into technical requirements, reviewing proposals, finding, evaluating and coordinating development partners, identifying technical risks
+
+## Principle
+
+Kreatech starts with the problem, not with a predefined technical solution. The right answer may be improving an existing website or system, a technical SEO fix, a process change, an integration, new development, finding another specialist, or deciding no new development is needed.
+
+## Pages
+
+- https://kreatech.ee/ — single-page website with sections: services (#services), process (#process), projects (#works), technical project management (#lead), about (#about), FAQ (#faq), contact (#contact)
+- https://kreatech.ee/sitemap.xml

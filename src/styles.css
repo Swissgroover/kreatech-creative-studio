@@ -142,3 +142,12 @@
   background-image: radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--color-foreground) 8%, transparent) 1px, transparent 0);
   background-size: 3px 3px;
 }
+
+/* Content revealed by GSAP must stay visible when motion is reduced. */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}

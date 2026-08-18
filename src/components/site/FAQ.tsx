@@ -11,10 +11,11 @@ export function FAQ() {
   return (
     <section
       id="faq"
+      aria-labelledby="faq-heading"
       className="relative overflow-hidden py-24 md:py-32"
       ref={ref}
     >
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
         <div className="absolute left-0 top-1/3 size-[500px] rounded-full bg-primary/15 blur-[160px]" />
         <div className="absolute right-0 bottom-1/4 size-[400px] rounded-full bg-accent/10 blur-[140px]" />
       </div>
@@ -24,7 +25,7 @@ export function FAQ() {
           <div className="mb-4 text-center text-xs uppercase tracking-widest text-accent">
             {t.faq.eyebrow}
           </div>
-          <h2 className="mb-6 text-center font-display text-4xl font-semibold tracking-tight text-balance md:text-6xl">
+          <h2 id="faq-heading" className="mb-6 text-center font-display text-4xl font-semibold tracking-tight text-balance md:text-6xl">
             {t.faq.title}
           </h2>
           <p className="mx-auto mb-16 max-w-2xl text-center text-base text-muted-foreground md:text-lg">
