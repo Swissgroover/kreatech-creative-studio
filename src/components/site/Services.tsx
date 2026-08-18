@@ -84,10 +84,10 @@ export function Services() {
                 <span className="size-2 rounded-full bg-accent opacity-0 transition-opacity group-hover:opacity-100" />
               </div>
               <div>
-                <h3 className="font-display text-4xl font-semibold leading-tight md:text-6xl">
+                <h3 className="font-display text-[1.75rem] font-semibold leading-[1.15] tracking-tight [overflow-wrap:break-word] sm:text-3xl md:text-5xl">
                   {s.title}
                 </h3>
-                <p className="mt-6 max-w-md text-base text-muted-foreground md:text-lg">
+                <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground md:mt-6 md:text-lg">
                   {s.desc}
                 </p>
                 <div className="mt-8 flex flex-wrap gap-2">
