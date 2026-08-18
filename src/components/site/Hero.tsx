@@ -33,7 +33,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto mt-8 max-w-6xl px-6 pb-4 md:-mt-24 md:mt-0">
+      <div className="relative z-10 mx-auto mt-8 max-w-6xl px-6 pb-4 md:-mt-24">
         <p className="max-w-xl text-balance text-lg text-foreground md:text-xl">
           {t.hero.statement}
         </p>
