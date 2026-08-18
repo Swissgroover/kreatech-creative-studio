@@ -583,3 +583,5 @@ export function projectBySlug(slug: string) {
 export function projectsForService(slug: string) {
   return PROJECTS.filter((p) => p.services.includes(slug));
 }
+
+export type ServiceItem = (typeof SERVICES)[number];
