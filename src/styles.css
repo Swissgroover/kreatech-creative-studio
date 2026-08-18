@@ -30,34 +30,35 @@
   --color-ring: var(--ring);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Serif", Georgia, "Times New Roman", serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.75rem;
-  /* Dark by default — deep navy near-black */
-  --background: oklch(0.16 0.04 255);
-  --foreground: oklch(0.97 0.01 250);
-  --surface: oklch(0.21 0.05 258);
-  --surface-2: oklch(0.26 0.06 260);
-  --card: oklch(0.21 0.05 258);
-  --card-foreground: oklch(0.97 0.01 250);
-  --popover: oklch(0.21 0.05 258);
-  --popover-foreground: oklch(0.97 0.01 250);
-  --primary: oklch(0.68 0.19 252);
-  --primary-foreground: oklch(0.14 0.04 255);
-  --secondary: oklch(0.26 0.06 260);
-  --secondary-foreground: oklch(0.97 0.01 250);
-  --muted: oklch(0.26 0.06 260);
-  --muted-foreground: oklch(0.72 0.03 255);
-  --accent: oklch(0.87 0.17 92);
-  --accent-foreground: oklch(0.18 0.04 255);
-  --destructive: oklch(0.65 0.22 25);
-  --destructive-foreground: oklch(0.98 0.01 250);
-  --border: oklch(0.32 0.05 260 / 60%);
-  --input: oklch(0.32 0.05 260 / 60%);
-  --ring: oklch(0.68 0.19 252);
+  --radius: 0.25rem;
+
+  /* Kreatech brand palette — dark teal, muted teal, warm beige, off-white, charcoal */
+  --background: #002124;
+  --foreground: #f3f0e9;
+  --surface: #00383d;
+  --surface-2: #17616a;
+  --card: #00383d;
+  --card-foreground: #f3f0e9;
+  --popover: #00383d;
+  --popover-foreground: #f3f0e9;
+  --primary: #7fb6bb;
+  --primary-foreground: #002124;
+  --secondary: #17616a;
+  --secondary-foreground: #f3f0e9;
+  --muted: #17616a;
+  --muted-foreground: #a9b8b6;
+  --accent: #d8d1c5;
+  --accent-foreground: #202020;
+  --destructive: #b4443a;
+  --destructive-foreground: #f3f0e9;
+  --border: color-mix(in oklab, #d8d1c5 16%, transparent);
+  --input: color-mix(in oklab, #d8d1c5 20%, transparent);
+  --ring: #7fb6bb;
 }
 
 @layer base {
@@ -66,6 +67,7 @@
   }
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
   body {
     background-color: var(--color-background);
@@ -74,9 +76,11 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-  h1, h2, h3, h4 {
-    font-family: var(--font-display);
-    letter-spacing: -0.02em;
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.015em;
   }
   ::selection {
     background: var(--color-accent);
@@ -85,19 +89,20 @@
 
   ::view-transition-old(root),
   ::view-transition-new(root) {
-    animation-duration: 260ms;
+    animation-duration: 220ms;
     animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
   }
-
   ::view-transition-old(root) {
     animation-name: lang-fade-out;
   }
-
   ::view-transition-new(root) {
     animation-name: lang-fade-in;
   }
 
   @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
     ::view-transition-old(root),
     ::view-transition-new(root) {
       animation-duration: 1ms;
@@ -108,22 +113,39 @@
 @keyframes lang-fade-out {
   from {
     opacity: 1;
-    filter: blur(0);
   }
   to {
     opacity: 0;
-    filter: blur(6px);
   }
 }
 
 @keyframes lang-fade-in {
   from {
     opacity: 0;
-    filter: blur(6px);
   }
   to {
     opacity: 1;
-    filter: blur(0);
+  }
+}
+
+/* Subtle section entrance — small fade + translate only. */
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
@@ -131,14 +153,6 @@
   text-wrap: balance;
 }
 
-@utility glow-blue {
-  box-shadow: 0 0 80px -10px color-mix(in oklab, var(--color-primary) 60%, transparent);
-}
-
-@utility grain {
-  position: relative;
-}
-@utility noise-overlay {
-  background-image: radial-gradient(circle at 1px 1px, color-mix(in oklab, var(--color-foreground) 8%, transparent) 1px, transparent 0);
-  background-size: 3px 3px;
+@utility rule {
+  border-top: 1px solid var(--color-border);
 }
