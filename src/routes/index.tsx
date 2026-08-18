@@ -224,7 +224,7 @@ export const Route = createFileRoute("/")({
                   name: "Infosüsteemid ja integratsioonid",
                   serviceType: "Custom software development",
                   description:
-                    "Kohandatud infosüsteemide arendus ning API- ja integratsioonilahendused olemasolevate süsteemide, laoprogrammide, CRM-ide ja teenuste vahel.",
+                    "Kohandatud infosüsteemide arendus ning API- ja integratsioonilahendused vastavalt tegelikule vajadusele: tehnoloogia valime lahenduse järgi, olgu selleks olemasolevad süsteemid, laoprogrammid, CRM-id või teenused.",
                   provider: { "@id": "https://kreatech.ee/#organization" },
                 },
                 {
