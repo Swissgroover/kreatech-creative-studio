@@ -9,12 +9,63 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WordpressArendusRouteImport } from './routes/wordpress-arendus'
+import { Route as VeebiarendusRouteImport } from './routes/veebiarendus'
+import { Route as TehnilineProjektijuhtimineRouteImport } from './routes/tehniline-projektijuhtimine'
+import { Route as TeenusedRouteImport } from './routes/teenused'
+import { Route as TarkvaraarendusRouteImport } from './routes/tarkvaraarendus'
+import { Route as TarkvaraAnaluusRouteImport } from './routes/tarkvara-analuus'
+import { Route as StatamicArendusRouteImport } from './routes/statamic-arendus'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as HooldusJaEdasiarendusRouteImport } from './routes/hooldus-ja-edasiarendus'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjektidIndexRouteImport } from './routes/projektid.index'
+import { Route as ProjektidSlugRouteImport } from './routes/projektid.$slug'
 
+const WordpressArendusRoute = WordpressArendusRouteImport.update({
+  id: '/wordpress-arendus',
+  path: '/wordpress-arendus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VeebiarendusRoute = VeebiarendusRouteImport.update({
+  id: '/veebiarendus',
+  path: '/veebiarendus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TehnilineProjektijuhtimineRoute =
+  TehnilineProjektijuhtimineRouteImport.update({
+    id: '/tehniline-projektijuhtimine',
+    path: '/tehniline-projektijuhtimine',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const TeenusedRoute = TeenusedRouteImport.update({
+  id: '/teenused',
+  path: '/teenused',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TarkvaraarendusRoute = TarkvaraarendusRouteImport.update({
+  id: '/tarkvaraarendus',
+  path: '/tarkvaraarendus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TarkvaraAnaluusRoute = TarkvaraAnaluusRouteImport.update({
+  id: '/tarkvara-analuus',
+  path: '/tarkvara-analuus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StatamicArendusRoute = StatamicArendusRouteImport.update({
+  id: '/statamic-arendus',
+  path: '/statamic-arendus',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HooldusJaEdasiarendusRoute = HooldusJaEdasiarendusRouteImport.update({
+  id: '/hooldus-ja-edasiarendus',
+  path: '/hooldus-ja-edasiarendus',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -22,40 +73,183 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjektidIndexRoute = ProjektidIndexRouteImport.update({
+  id: '/projektid/',
+  path: '/projektid/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjektidSlugRoute = ProjektidSlugRouteImport.update({
+  id: '/projektid/$slug',
+  path: '/projektid/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/hooldus-ja-edasiarendus': typeof HooldusJaEdasiarendusRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/statamic-arendus': typeof StatamicArendusRoute
+  '/tarkvara-analuus': typeof TarkvaraAnaluusRoute
+  '/tarkvaraarendus': typeof TarkvaraarendusRoute
+  '/teenused': typeof TeenusedRoute
+  '/tehniline-projektijuhtimine': typeof TehnilineProjektijuhtimineRoute
+  '/veebiarendus': typeof VeebiarendusRoute
+  '/wordpress-arendus': typeof WordpressArendusRoute
+  '/projektid/$slug': typeof ProjektidSlugRoute
+  '/projektid/': typeof ProjektidIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/hooldus-ja-edasiarendus': typeof HooldusJaEdasiarendusRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/statamic-arendus': typeof StatamicArendusRoute
+  '/tarkvara-analuus': typeof TarkvaraAnaluusRoute
+  '/tarkvaraarendus': typeof TarkvaraarendusRoute
+  '/teenused': typeof TeenusedRoute
+  '/tehniline-projektijuhtimine': typeof TehnilineProjektijuhtimineRoute
+  '/veebiarendus': typeof VeebiarendusRoute
+  '/wordpress-arendus': typeof WordpressArendusRoute
+  '/projektid/$slug': typeof ProjektidSlugRoute
+  '/projektid': typeof ProjektidIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/hooldus-ja-edasiarendus': typeof HooldusJaEdasiarendusRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/statamic-arendus': typeof StatamicArendusRoute
+  '/tarkvara-analuus': typeof TarkvaraAnaluusRoute
+  '/tarkvaraarendus': typeof TarkvaraarendusRoute
+  '/teenused': typeof TeenusedRoute
+  '/tehniline-projektijuhtimine': typeof TehnilineProjektijuhtimineRoute
+  '/veebiarendus': typeof VeebiarendusRoute
+  '/wordpress-arendus': typeof WordpressArendusRoute
+  '/projektid/$slug': typeof ProjektidSlugRoute
+  '/projektid/': typeof ProjektidIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/hooldus-ja-edasiarendus'
+    | '/sitemap.xml'
+    | '/statamic-arendus'
+    | '/tarkvara-analuus'
+    | '/tarkvaraarendus'
+    | '/teenused'
+    | '/tehniline-projektijuhtimine'
+    | '/veebiarendus'
+    | '/wordpress-arendus'
+    | '/projektid/$slug'
+    | '/projektid/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml'
-  id: '__root__' | '/' | '/sitemap.xml'
+  to:
+    | '/'
+    | '/hooldus-ja-edasiarendus'
+    | '/sitemap.xml'
+    | '/statamic-arendus'
+    | '/tarkvara-analuus'
+    | '/tarkvaraarendus'
+    | '/teenused'
+    | '/tehniline-projektijuhtimine'
+    | '/veebiarendus'
+    | '/wordpress-arendus'
+    | '/projektid/$slug'
+    | '/projektid'
+  id:
+    | '__root__'
+    | '/'
+    | '/hooldus-ja-edasiarendus'
+    | '/sitemap.xml'
+    | '/statamic-arendus'
+    | '/tarkvara-analuus'
+    | '/tarkvaraarendus'
+    | '/teenused'
+    | '/tehniline-projektijuhtimine'
+    | '/veebiarendus'
+    | '/wordpress-arendus'
+    | '/projektid/$slug'
+    | '/projektid/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  HooldusJaEdasiarendusRoute: typeof HooldusJaEdasiarendusRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  StatamicArendusRoute: typeof StatamicArendusRoute
+  TarkvaraAnaluusRoute: typeof TarkvaraAnaluusRoute
+  TarkvaraarendusRoute: typeof TarkvaraarendusRoute
+  TeenusedRoute: typeof TeenusedRoute
+  TehnilineProjektijuhtimineRoute: typeof TehnilineProjektijuhtimineRoute
+  VeebiarendusRoute: typeof VeebiarendusRoute
+  WordpressArendusRoute: typeof WordpressArendusRoute
+  ProjektidSlugRoute: typeof ProjektidSlugRoute
+  ProjektidIndexRoute: typeof ProjektidIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wordpress-arendus': {
+      id: '/wordpress-arendus'
+      path: '/wordpress-arendus'
+      fullPath: '/wordpress-arendus'
+      preLoaderRoute: typeof WordpressArendusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/veebiarendus': {
+      id: '/veebiarendus'
+      path: '/veebiarendus'
+      fullPath: '/veebiarendus'
+      preLoaderRoute: typeof VeebiarendusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tehniline-projektijuhtimine': {
+      id: '/tehniline-projektijuhtimine'
+      path: '/tehniline-projektijuhtimine'
+      fullPath: '/tehniline-projektijuhtimine'
+      preLoaderRoute: typeof TehnilineProjektijuhtimineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/teenused': {
+      id: '/teenused'
+      path: '/teenused'
+      fullPath: '/teenused'
+      preLoaderRoute: typeof TeenusedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tarkvaraarendus': {
+      id: '/tarkvaraarendus'
+      path: '/tarkvaraarendus'
+      fullPath: '/tarkvaraarendus'
+      preLoaderRoute: typeof TarkvaraarendusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tarkvara-analuus': {
+      id: '/tarkvara-analuus'
+      path: '/tarkvara-analuus'
+      fullPath: '/tarkvara-analuus'
+      preLoaderRoute: typeof TarkvaraAnaluusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/statamic-arendus': {
+      id: '/statamic-arendus'
+      path: '/statamic-arendus'
+      fullPath: '/statamic-arendus'
+      preLoaderRoute: typeof StatamicArendusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
       fullPath: '/sitemap.xml'
       preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hooldus-ja-edasiarendus': {
+      id: '/hooldus-ja-edasiarendus'
+      path: '/hooldus-ja-edasiarendus'
+      fullPath: '/hooldus-ja-edasiarendus'
+      preLoaderRoute: typeof HooldusJaEdasiarendusRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -65,12 +259,36 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projektid/': {
+      id: '/projektid/'
+      path: '/projektid'
+      fullPath: '/projektid/'
+      preLoaderRoute: typeof ProjektidIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projektid/$slug': {
+      id: '/projektid/$slug'
+      path: '/projektid/$slug'
+      fullPath: '/projektid/$slug'
+      preLoaderRoute: typeof ProjektidSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  HooldusJaEdasiarendusRoute: HooldusJaEdasiarendusRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  StatamicArendusRoute: StatamicArendusRoute,
+  TarkvaraAnaluusRoute: TarkvaraAnaluusRoute,
+  TarkvaraarendusRoute: TarkvaraarendusRoute,
+  TeenusedRoute: TeenusedRoute,
+  TehnilineProjektijuhtimineRoute: TehnilineProjektijuhtimineRoute,
+  VeebiarendusRoute: VeebiarendusRoute,
+  WordpressArendusRoute: WordpressArendusRoute,
+  ProjektidSlugRoute: ProjektidSlugRoute,
+  ProjektidIndexRoute: ProjektidIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
