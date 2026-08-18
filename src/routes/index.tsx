@@ -71,9 +71,9 @@ export const Route = createFileRoute("/")({
       {
         name: "keywords",
         content:
-          "Kreatech, tarkvaraarendus, veebiarendus, veebilehed, e-poed, AI lahendused, tehisintellekt, Laravel, React, Vue, TypeScript, API arendus, infosüsteemid, custom software, SaaS, Eesti tarkvarafirma",
+          "Kreatech, tarkvaraarendus, veebiarendus, tarkvara analüüs, veebilehe analüüs, tehniline audit, tehniline SEO, SEO audit, tehniline projektijuhtimine, WordPress, Statamic, ReactJS, integratsioonid, veebilehe hooldus, arenduspartner",
       },
-      { name: "author", content: "Kreatech" },
+      { name: "author", content: "Kreatech OÜ" },
       {
         name: "robots",
         content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
@@ -90,18 +90,23 @@ export const Route = createFileRoute("/")({
       { property: "og:description", content: OG_DESCRIPTION },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "et_EE" },
-      { property: "og:url", content: "https://kreatech.ee" },
+      { property: "og:locale:alternate", content: "en_US" },
+      { property: "og:url", content: "https://kreatech.ee/" },
       { property: "og:image", content: "https://kreatech.ee/images/og-image.png" },
       { property: "og:image:width", content: "1200" },
       { property: "og:image:height", content: "630" },
-      { property: "og:image:alt", content: "Kreatech – tarkvara- ja veebiarendus" },
+      {
+        property: "og:image:alt",
+        content: "Kreatech – tehniline partner: analüüs, arendus ja projektijuhtimine",
+      },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: OG_TITLE },
       {
         name: "twitter:description",
-        content: "Kaasaegsed veebilahendused, infosüsteemid ja AI-põhine tarkvaraarendus.",
+        content: OG_DESCRIPTION,
       },
       { name: "twitter:image", content: "https://kreatech.ee/images/og-image.png" },
+
     ],
 
     links: [{ rel: "canonical", href: "https://kreatech.ee/" }],
