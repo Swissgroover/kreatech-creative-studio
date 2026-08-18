@@ -7,6 +7,7 @@ export function Nav() {
   const { t, lang, setLang } = useLang();
   const [scrolled, setScrolled] = useState(false);
   const [hover, setHover] = useState<string | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const links = [
     { href: "#services", label: t.nav.services },
