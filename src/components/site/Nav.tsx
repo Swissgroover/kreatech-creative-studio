@@ -51,14 +51,14 @@ export function Nav() {
           </a>
           <ul
             onMouseLeave={() => setHover(null)}
-            className="hidden items-center gap-1 md:flex"
+            className="hidden items-center gap-1 lg:flex"
           >
             {links.map((l) => (
               <li key={l.href} className="relative">
                 <a
                   href={l.href}
                   onMouseEnter={() => setHover(l.href)}
-                  className="relative z-10 block px-4 py-2 text-sm text-muted-foreground transition-colors duration-300 hover:text-foreground"
+                  className="relative z-10 block px-3 py-2 text-sm text-muted-foreground transition-colors duration-300 hover:text-foreground xl:px-4"
                 >
                   {l.label}
                 </a>
@@ -72,16 +72,72 @@ export function Nav() {
               </li>
             ))}
           </ul>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <LangToggle lang={lang} setLang={setLang} />
             <a
               href="#contact"
-              className="hidden rounded-full border border-border bg-surface/60 px-4 py-2 text-sm font-medium backdrop-blur transition-all duration-300 hover:border-accent hover:text-accent hover:shadow-[0_0_30px_-10px] hover:shadow-accent md:inline-block"
+              className="hidden rounded-full border border-border bg-surface/60 px-4 py-2 text-sm font-medium backdrop-blur transition-all duration-300 hover:border-accent hover:text-accent hover:shadow-[0_0_30px_-10px] hover:shadow-accent lg:inline-block"
             >
               {t.nav.cta}
             </a>
+            <button
+              type="button"
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              aria-label={t.nav.cta}
+              className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-surface/60 backdrop-blur transition-colors hover:border-accent hover:text-accent lg:hidden"
+            >
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                <path
+                  d={menuOpen ? "M4 4l10 10M14 4L4 14" : "M2 5h14M2 12h14"}
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </button>
           </div>
         </nav>
+
+        <AnimatePresence initial={false}>
+          {menuOpen && (
+            <motion.div
+              id="mobile-menu"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{
+                height: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+                opacity: { duration: 0.25 },
+              }}
+              className="overflow-hidden border-t border-border/50 bg-background/90 backdrop-blur-xl lg:hidden"
+            >
+              <ul className="mx-auto flex max-w-7xl flex-col gap-1 px-6 py-5">
+                {links.map((l) => (
+                  <li key={l.href}>
+                    <a
+                      href={l.href}
+                      onClick={() => setMenuOpen(false)}
+                      className="block rounded-xl px-3 py-3 text-base text-muted-foreground transition-colors hover:bg-surface/70 hover:text-foreground"
+                    >
+                      {l.label}
+                    </a>
+                  </li>
+                ))}
+                <li className="pt-2">
+                  <a
+                    href="#contact"
+                    onClick={() => setMenuOpen(false)}
+                    className="block rounded-full bg-accent px-5 py-3 text-center text-sm font-semibold text-accent-foreground"
+                  >
+                    {t.nav.cta}
+                  </a>
+                </li>
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </motion.header>
     </>
   );
