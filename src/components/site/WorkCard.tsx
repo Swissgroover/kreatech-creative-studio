@@ -30,27 +30,36 @@ export function WorkCard({
       href={href || "#"}
       {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       {...(decorative ? { "aria-hidden": true, tabIndex: -1 } : {})}
-      className="group relative shrink-0 block overflow-hidden rounded-3xl border border-border bg-surface w-[80vw] sm:w-[55vw] md:w-[40vw] lg:w-[30vw] xl:w-[26rem]"
+      className="group relative block w-[80vw] shrink-0 sm:w-[55vw] md:w-[40vw] lg:w-[30vw] xl:w-[26rem]"
     >
-      <div className="relative aspect-[4/3] overflow-hidden">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-border/70 bg-surface transition-colors duration-500 group-hover:border-accent/50">
         <img
           src={imgSrc}
           alt={title}
           loading="lazy"
           draggable={false}
-          className="size-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06] pointer-events-none"
+          className="pointer-events-none size-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.03]"
         />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-accent/40 via-transparent to-transparent opacity-0 mix-blend-overlay transition-opacity duration-500 group-hover:opacity-100" />
-        <div className="absolute left-4 top-4 rounded-full border border-white/20 bg-black/40 px-3 py-1 text-xs uppercase tracking-widest text-white/90 backdrop-blur">
+        <span className="absolute left-4 top-4 text-[0.6875rem] uppercase tracking-[0.2em] text-white/70 mix-blend-difference">
           {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-        </div>
+        </span>
       </div>
-      <div className="flex items-start justify-between gap-4 p-6 md:p-7">
+
+      <div className="flex items-start justify-between gap-6 pt-5">
         <div className="min-w-0">
-          <h3 className="font-display text-lg font-semibold md:text-xl line-clamp-2">{title}</h3>
-          <p className="mt-1 text-sm text-muted-foreground">{tag}</p>
+          <h3 className="font-display text-lg font-semibold leading-snug tracking-[-0.02em] md:text-xl">
+            <span className="bg-gradient-to-r from-accent to-accent bg-[length:0%_1px] bg-left-bottom bg-no-repeat pb-0.5 transition-[background-size] duration-500 ease-out group-hover:bg-[length:100%_1px]">
+              {title}
+            </span>
+          </h3>
+          <p className="mt-2 text-[0.75rem] uppercase tracking-[0.16em] text-muted-foreground/80">
+            {tag}
+          </p>
         </div>
-        <span className="shrink-0 text-2xl text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-accent">
+        <span
+          aria-hidden="true"
+          className="mt-1 shrink-0 text-lg text-muted-foreground transition-all duration-500 group-hover:translate-x-1 group-hover:text-accent"
+        >
           →
         </span>
       </div>

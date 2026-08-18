@@ -16,46 +16,59 @@ export function Services() {
     const ctx = gsap.context(() => {
       const track = trackRef.current!;
       const mm = gsap.matchMedia();
-      mm.add("(min-width: 1024px)", () => {
-        const getNavOffset = () => {
-          const nav = document.querySelector("header, nav");
-          return nav ? (nav as HTMLElement).getBoundingClientRect().height : 80;
-        };
-        const distance = track.scrollWidth - window.innerWidth + 96;
-        gsap.to(track, {
-          x: -distance,
-          ease: "none",
-          scrollTrigger: {
-            trigger: wrapRef.current,
-            start: () => `top ${getNavOffset()}px`,
-            end: () => `+=${distance}`,
-            pin: true,
-            pinSpacing: true,
-            scrub: 1,
-            invalidateOnRefresh: true,
-          },
-        });
-      });
+      mm.add(
+        {
+          desktop: "(min-width: 1024px)",
+          reduce: "(prefers-reduced-motion: reduce)",
+        },
+        (context) => {
+          const { desktop, reduce } = context.conditions as {
+            desktop: boolean;
+            reduce: boolean;
+          };
+          if (!desktop || reduce) return;
+
+          const getNavOffset = () => {
+            const nav = document.querySelector("header, nav");
+            return nav ? (nav as HTMLElement).getBoundingClientRect().height : 80;
+          };
+          const distance = () => Math.max(0, track.scrollWidth - window.innerWidth + 96);
+          gsap.to(track, {
+            x: () => -distance(),
+            ease: "none",
+            scrollTrigger: {
+              trigger: wrapRef.current,
+              start: () => `top ${getNavOffset()}px`,
+              end: () => `+=${distance()}`,
+              pin: true,
+              pinSpacing: true,
+              scrub: 1,
+              invalidateOnRefresh: true,
+            },
+          });
+        },
+      );
     }, wrapRef);
     return () => ctx.revert();
   }, [t]);
 
   return (
-    <section id="services" aria-labelledby="services-heading" className="relative py-24 md:py-32">
+    <section id="services" aria-labelledby="services-heading" className="relative section-y">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
-          <div className="flex items-end justify-between gap-6">
-            <div>
-              <div className="mb-4 text-xs uppercase tracking-widest text-accent">
-                {t.services.eyebrow}
-              </div>
-              <h2 id="services-heading" className="font-display text-4xl font-semibold tracking-tight md:text-6xl">
+          <div className="grid gap-6 md:grid-cols-12 md:items-end md:gap-10">
+            <div className="md:col-span-7">
+              <div className="eyebrow mb-5">{t.services.eyebrow}</div>
+              <h2
+                id="services-heading"
+                className="font-display text-[clamp(2rem,5vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.03em]"
+              >
                 {t.services.title[0]}
                 <span className="italic text-primary">{t.services.title[1]}</span>
                 {t.services.title[2]}
               </h2>
             </div>
-            <p className="hidden max-w-sm text-sm text-muted-foreground md:block">
+            <p className="max-w-[52ch] text-[0.9375rem] leading-relaxed text-muted-foreground md:col-span-5 md:justify-self-end md:text-right">
               {t.services.sub}
             </p>
           </div>
@@ -64,47 +77,41 @@ export function Services() {
 
       <div
         ref={wrapRef}
-        className="mt-12 overflow-x-auto overscroll-x-contain pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-16 lg:flex lg:min-h-[78vh] lg:items-center lg:overflow-hidden lg:pb-0"
+        className="mt-14 overflow-x-auto overscroll-x-contain pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-20 lg:flex lg:min-h-[70vh] lg:items-center lg:overflow-hidden lg:pb-0"
       >
         <div
           ref={trackRef}
-          className="flex snap-x snap-mandatory gap-6 px-6 md:px-8 lg:snap-none lg:gap-8 lg:px-12"
+          className="flex snap-x snap-mandatory gap-6 px-6 md:px-8 lg:snap-none lg:gap-14 lg:px-12"
           style={{ width: "max-content" }}
         >
           {t.services.items.map((s, i) => (
             <article
               key={i}
-              className="group relative flex w-[82vw] max-w-[420px] snap-center flex-col gap-10 overflow-hidden rounded-3xl border border-border bg-surface p-7 sm:p-8 md:w-[60vw] lg:w-[44vw] lg:min-h-[520px] lg:max-w-none lg:justify-between lg:p-12"
+              className="group relative flex w-[82vw] max-w-[420px] snap-center flex-col border-t border-border/70 pt-6 transition-colors duration-500 hover:border-accent/60 md:w-[62vw] lg:w-[38vw] lg:max-w-[30rem] lg:pt-8"
             >
-              <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/0 to-primary/0 transition-all duration-700 group-hover:from-primary/10 group-hover:to-accent/5" />
-              <div className="flex items-start justify-between">
-                <span className="font-display text-sm text-muted-foreground">
+              <div className="flex items-baseline gap-4">
+                <span className="font-display text-sm font-semibold tabular-nums tracking-[0.14em] text-accent">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="size-2 rounded-full bg-accent opacity-0 transition-opacity group-hover:opacity-100" />
+                <span className="h-px flex-1 bg-border/60 transition-colors duration-500 group-hover:bg-accent/40" />
               </div>
-              <div>
-                <h3 className="font-display text-[1.75rem] font-semibold leading-[1.15] tracking-tight [hyphens:auto] [overflow-wrap:break-word] sm:text-3xl lg:text-4xl xl:text-5xl">
-                  {s.title}
-                </h3>
-                <p className="mt-5 max-w-md text-base leading-relaxed text-muted-foreground md:mt-6 md:text-lg">
-                  {s.desc}
-                </p>
-                <div className="mt-8 flex flex-wrap gap-2">
-                  {s.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+
+              <h3 className="mt-7 font-display text-[clamp(1.5rem,2.4vw,2.25rem)] font-semibold leading-[1.15] tracking-[-0.025em] [hyphens:auto] [overflow-wrap:break-word]">
+                {s.title}
+              </h3>
+              <p className="mt-4 max-w-[46ch] text-[1.0625rem] leading-[1.65] text-muted-foreground">
+                {s.desc}
+              </p>
+              <div className="mt-7 flex flex-wrap gap-x-4 gap-y-2">
+                {s.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[0.6875rem] uppercase tracking-[0.16em] text-muted-foreground/80"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
-              <div className="pointer-events-none absolute -right-20 -bottom-20 size-64 rounded-full bg-primary/10 blur-3xl transition-all duration-700 group-hover:bg-accent/15" />
-              <span className="absolute right-8 top-8 font-display text-7xl font-bold text-foreground/[0.03] md:text-9xl">
-                {i + 1}
-              </span>
             </article>
           ))}
         </div>
