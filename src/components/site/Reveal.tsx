@@ -57,11 +57,16 @@ export function Reveal({
   const hiddenClass = "opacity-0";
   const combinedClassName = className ? `${hiddenClass} ${className}` : hiddenClass;
 
-  // @ts-expect-error dynamic element
   return (
-    <As ref={ref} data-reveal="" className={combinedClassName}>
+    <As
+      // @ts-expect-error dynamic element
+      ref={ref}
+      data-reveal=""
+      className={combinedClassName}
+    >
       {children}
     </As>
   );
+
 }
 
