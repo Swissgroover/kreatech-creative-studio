@@ -12,25 +12,27 @@ export const SITE = {
 
 export type Service = {
   slug: string;
+  href: string;
   num: string;
   title: string;
   navTitle: string;
   short: string;
   intro: string;
-  forWhom: string[];
-  problems: string[];
-  weDo: string[];
-  tech?: string[];
-  process?: { title: string; desc: string }[];
-  faq: { q: string; a: string }[];
-  projects: string[];
+  forWhom: readonly string[];
+  problems: readonly string[];
+  weDo: readonly string[];
+  tech?: readonly string[];
+  process?: readonly { title: string; desc: string }[];
+  faq: readonly { q: string; a: string }[];
+  projects: readonly string[];
   metaTitle: string;
   metaDescription: string;
 };
 
-export const SERVICES: Service[] = [
+export const SERVICES = [
   {
     slug: "tarkvaraarendus",
+    href: "/tarkvaraarendus",
     num: "01",
     title: "Tarkvaraarendus",
     navTitle: "Tarkvaraarendus",
@@ -79,6 +81,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "veebiarendus",
+    href: "/veebiarendus",
     num: "02",
     title: "Veebiarendus",
     navTitle: "Veebiarendus",
@@ -120,6 +123,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "wordpress-arendus",
+    href: "/wordpress-arendus",
     num: "03",
     title: "WordPressi arendus",
     navTitle: "WordPress",
@@ -161,6 +165,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "statamic-arendus",
+    href: "/statamic-arendus",
     num: "04",
     title: "Statamicu arendus",
     navTitle: "Statamic",
@@ -202,6 +207,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "tarkvara-analuus",
+    href: "/tarkvara-analuus",
     num: "05",
     title: "Analüüs ja arhitektuur",
     navTitle: "Analüüs",
@@ -243,6 +249,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "tehniline-projektijuhtimine",
+    href: "/tehniline-projektijuhtimine",
     num: "06",
     title: "Tehniline projektijuhtimine",
     navTitle: "Projektijuhtimine",
@@ -284,6 +291,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "hooldus-ja-edasiarendus",
+    href: "/hooldus-ja-edasiarendus",
     num: "07",
     title: "Hooldus ja edasiarendus",
     navTitle: "Hooldus",
@@ -323,7 +331,7 @@ export const SERVICES: Service[] = [
     metaDescription:
       "Tehniline hooldus ja edasiarendus: uuendused, varundus, monitooring, turvalisus ja jooksvad parandused.",
   },
-];
+] as const satisfies readonly Service[];
 
 export type Project = {
   slug: string;
