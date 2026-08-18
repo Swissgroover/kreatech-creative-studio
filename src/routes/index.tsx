@@ -193,59 +193,60 @@ export const Route = createFileRoute("/")({
                 {
                   "@type": "Service",
                   position: 1,
-                  name: "ReactJS ja kaasaegne veebiarendus",
-                  serviceType: "Web application development",
+                  name: "Tarkvara ja veebilehe analüüs",
+                  serviceType: "Software and website analysis",
                   description:
-                    "Kaasaegsete veebirakenduste ja SaaS-platvormide arendus ReactJS, Next.js ja TanStack Start baasil.",
+                    "Olemasoleva veebilehe või tarkvara tehniline audit: arhitektuur, koodi seis, jõudlus, turvalisus, integratsioonid ja arendusvajaduse kaardistamine koos soovitustega.",
                   provider: { "@id": "https://kreatech.ee/#organization" },
                   areaServed: "EE",
                 },
                 {
                   "@type": "Service",
                   position: 2,
-                  name: "WordPress arendus ja haldus",
-                  serviceType: "WordPress development",
+                  name: "Tehniline projektijuhtimine",
+                  serviceType: "Technical project management",
                   description:
-                    "WordPressi veebilehtede ja e-poodide arendus, kohandatud teemad, pluginad ning pidev haldus, turvauuendused ja varundus.",
+                    "Tehniline esindaja kliendi poolel: lähteülesande koostamine, arenduspartneri valik, pakkumiste hindamine, arendajate koordineerimine ja tarne kontroll.",
                   provider: { "@id": "https://kreatech.ee/#organization" },
                 },
                 {
                   "@type": "Service",
                   position: 3,
-                  name: "Statamic CMS lahendused",
-                  serviceType: "Headless CMS development",
+                  name: "Veebiarendus ja veebirakendused",
+                  serviceType: "Web development",
                   description:
-                    "Statamic-põhised headless-CMS lahendused, kus on vaja paindlikku sisuhaldust ja puhast andmestruktuuri.",
+                    "Veebilehtede, e-poodide ja veebirakenduste arendus ReactJSi, TypeScripti ja Node.js-i baasil ning WordPressi ja Statamicu peal.",
                   provider: { "@id": "https://kreatech.ee/#organization" },
                 },
                 {
                   "@type": "Service",
                   position: 4,
-                  name: "Süsteemihaldus ja DevOps",
-                  serviceType: "System administration",
+                  name: "Infosüsteemid ja integratsioonid",
+                  serviceType: "Custom software development",
                   description:
-                    "Serverite, pilveinfrastruktuuri ja deploy-protsesside haldus, monitooring ja jõudluse optimeerimine.",
+                    "Kohandatud infosüsteemide arendus ning API- ja integratsioonilahendused olemasolevate süsteemide, laoprogrammide, CRM-ide ja teenuste vahel.",
                   provider: { "@id": "https://kreatech.ee/#organization" },
                 },
                 {
                   "@type": "Service",
                   position: 5,
-                  name: "Tarkvara analüüs ja projektide kirjutamine",
-                  serviceType: "Software analysis",
+                  name: "Tehniline SEO ja jõudluse optimeerimine",
+                  serviceType: "Technical SEO",
                   description:
-                    "Ärinõuete kaardistamine, tehnilise lahenduse disain ja projektidokumentatsiooni koostamine enne arenduse algust.",
+                    "Saidi struktuuri, indekseerimise, crawlitavuse, laadimiskiiruse, metaandmete ja struktuurandmete korrastamine leitavuse parandamiseks otsingu- ja AI-mootorites.",
                   provider: { "@id": "https://kreatech.ee/#organization" },
                 },
                 {
                   "@type": "Service",
                   position: 6,
-                  name: "Tehniline projektijuhtimine",
-                  serviceType: "Technical project management",
+                  name: "Hooldus, tugi ja edasiarendus",
+                  serviceType: "Website maintenance and support",
                   description:
-                    "Tehniline projektijuht olemasolevale arendusmeeskonnale — tõlgime äriideed arendajatele arusaadavaks ja juhime tarne.",
+                    "WordPressi, Statamicu ja kohandatud lahenduste haldus: turvauuendused, varundused, monitooring, kiirparandused ja pidev edasiarendus.",
                   provider: { "@id": "https://kreatech.ee/#organization" },
                 },
               ],
+
             },
             {
               "@type": "FAQPage",
