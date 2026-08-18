@@ -82,12 +82,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "Kreatech – Tarkvaraarendus, Veebilahendused ja AI Lahendused Eestis",
+        title: "Kreatech | Tarkvaraarendus, analüüs ja tehniline projektijuhtimine",
       },
       {
         name: "description",
         content:
-          "Kreatech arendab kaasaegseid veebilahendusi, infosüsteeme, e-poode, äritarkvara ja AI-põhiseid lahendusi.",
+          "Kreatech OÜ aitab ettevõtetel analüüsida ja parandada digilahendusi, planeerida tarkvaraarendust, juhtida tehnilisi projekte ning arendada veebilehti ja tarkvara.",
       },
       {
         name: "author",
