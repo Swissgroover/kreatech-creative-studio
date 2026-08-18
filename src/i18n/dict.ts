@@ -21,7 +21,7 @@ export const dict = {
     services: {
       eyebrow: "/ Teenused",
       title: ["Mida me ", "teeme", "?"],
-      sub: "Analüüs, arendus, haldus ja projektijuhtimine — vali üks või kombineeri.",
+      sub: "Alustame sellest, mida on päriselt vaja lahendada. Analüüs, arendus, SEO, haldus või projektijuhtimine tuleb selle järgi.",
       items: [
         {
           title: "Analüüs ja tehniline audit",
@@ -30,7 +30,7 @@ export const dict = {
         },
         {
           title: "Tarkvaraarendus",
-          desc: "Kohandatud veebirakendused ja infosüsteemid ReactJSi, TypeScripti ja Node.js-i baasil. Ehitame ka integratsioone olemasolevate süsteemide vahel (CRM, e-pood, raamatupidamine, API-d), kui andmed peavad liikuma käsitsi töö asemel automaatselt.",
+          desc: "Kohandatud veebirakendused, infosüsteemid ja integratsioonid vastavalt tegelikule vajadusele. Tehnoloogia valime selle järgi, mis lahendusele päriselt sobib — mitte vastupidi. Ehitame ka andmesillad olemasolevate süsteemide vahel (CRM, e-pood, raamatupidamine, API-d), kui info peab liikuma käsitsi töö asemel automaatselt.",
           tags: ["ReactJS", "TypeScript", "Integratsioonid"],
         },
         {
@@ -137,7 +137,7 @@ export const dict = {
     lead: {
       eyebrow: "/ Võta meid projektijuhiks",
       title: ["Sul on ", "arendusmeeskond", ", kuid sul puudub inimene, ", "kes neist aru saab."],
-      sub: "Astume sisse tehnilise projektijuhina ja oleme tehniline esindaja sinu poolel. Räägime mõlema poole keelt: sina mõtled ärile, meie hoiame, et arendus liigub õiges suunas, õigel ajal ja õige hinnaga. Sa ei pea selleks ise tehniline olema.",
+      sub: "Astume sisse tehnilise projektijuhina ja oleme tehniline esindaja sinu poolel. Räägime mõlema poole keelt: sina mõtled ärile, meie hoiame, et arendus liigub õiges suunas, õigel ajal ja õige hinnaga. Ja kui arendusmeeskonda veel pole, aitame enne töö alustamist vajaduse läbi mõelda, nõuded paika panna ning sobiva partneri leida ja hinnata. Sa ei pea selleks ise tehniline olema.",
       bullets: [
         "Tõlgime ärivajaduse konkreetseteks tehnilisteks nõueteks",
         "Suhtleme arendajate ja agentuuridega sinu eest",
@@ -151,7 +151,7 @@ export const dict = {
     about: {
       eyebrow: "/ Meist",
       title: ["Kaks inimest, ", "üks tiim", "."],
-      sub: "Kreatech OÜ on väike Eesti tarkvarastuudio. Töötame otse — ilma vahendajate, pikkade koosolekute ja tühjade lubadusteta. Sa räägid inimestega, kes su lahenduse ka päriselt analüüsivad, kirjutavad ja hiljem hooldavad. Töötame Eestis ja rahvusvaheliselt, eesti või inglise keeles.",
+      sub: "Kreatech OÜ on Eesti tehnoloogiaettevõte, mis aitab ettevõtetel digiprobleemidest töötavate lahendusteni jõuda. Analüüsime, nõustame, planeerime, juhime, leiame vajadusel õiged partnerid ja arendame ise. Töötame otse — ilma vahendajate, pikkade koosolekute ja tühjade lubadusteta. Sa räägid inimestega, kes su lahenduse ka päriselt läbi mõtlevad, ehitavad ja hiljem hooldavad. Töötame Eestis ja rahvusvaheliselt, eesti või inglise keeles.",
       foundedLabel: "Asutatud",
       projectsLabel: "Projekte",
       team: [
@@ -236,7 +236,7 @@ export const dict = {
     services: {
       eyebrow: "/ Services",
       title: ["What we ", "do", "."],
-      sub: "Analysis, development, maintenance and project management — pick one or combine.",
+      sub: "We start from what actually needs solving. Analysis, development, SEO, maintenance or project management follows from that.",
       items: [
         {
           title: "Analysis & technical audit",
@@ -245,7 +245,7 @@ export const dict = {
         },
         {
           title: "Software development",
-          desc: "Custom web applications and business systems with ReactJS, TypeScript and Node.js. We also build integrations between existing systems (CRM, e-commerce, accounting, APIs) so data moves automatically instead of by hand.",
+          desc: "Custom web applications, business systems and integrations built around the actual need. We choose the technology that genuinely fits the solution — not the other way round. We also connect existing systems (CRM, e-commerce, accounting, APIs) so data moves automatically instead of by hand.",
           tags: ["ReactJS", "TypeScript", "Integrations"],
         },
         {
@@ -356,7 +356,7 @@ export const dict = {
         ". You're missing the person ",
         "who actually understands them.",
       ],
-      sub: "We step in as your technical project lead and act as the technical representative on your side. We speak both languages: you focus on the business, we make sure development moves in the right direction, on time and on budget. You don't need to be technical yourself.",
+      sub: "We step in as your technical project lead and act as the technical representative on your side. We speak both languages: you focus on the business, we make sure development moves in the right direction, on time and on budget. And if there is no development team yet, we help think the need through, define the requirements and find and evaluate the right partner before the work starts. You don't need to be technical yourself.",
       bullets: [
         "We translate business needs into concrete technical requirements",
         "We talk to developers and agencies on your behalf",
@@ -376,7 +376,7 @@ export const dict = {
     about: {
       eyebrow: "/ About",
       title: ["Two people, ", "one team", "."],
-      sub: "Kreatech OÜ is a small Estonian software studio. We work directly — no middlemen, no endless meetings, no empty promises. You talk to the people who analyse, build and later maintain your solution. We work in Estonia and internationally, in Estonian or English.",
+      sub: "Kreatech OÜ is an Estonian technology company that helps businesses get from digital problems to solutions that actually work. We analyse, advise, plan, manage, find the right partners when needed and build ourselves. We work directly — no middlemen, no endless meetings, no empty promises. You talk to the people who think your solution through, build it and later maintain it. We work in Estonia and internationally, in Estonian or English.",
       foundedLabel: "Founded",
       projectsLabel: "Projects",
       team: [
