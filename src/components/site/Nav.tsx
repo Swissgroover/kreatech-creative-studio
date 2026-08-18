@@ -35,38 +35,37 @@ export function Nav() {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "backdrop-blur-xl bg-background/60 border-b border-border/50"
-            : "bg-transparent"
+            ? "border-b border-border/50 bg-background/70 backdrop-blur-xl"
+            : "border-b border-transparent bg-transparent"
         }`}
       >
         <nav
           aria-label="Peamenüü"
-          className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5"
+          className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:py-5"
         >
           <a href="#top" className="group flex items-center gap-2">
-           
-            <span className="font-display text-lg font-semibold tracking-tight">
+            <span className="font-display text-base font-semibold tracking-tight md:text-lg">
               Kreatech
             </span>
           </a>
           <ul
             onMouseLeave={() => setHover(null)}
-            className="hidden items-center gap-1 lg:flex"
+            className="hidden items-center gap-0.5 lg:flex"
           >
             {links.map((l) => (
               <li key={l.href} className="relative">
                 <a
                   href={l.href}
                   onMouseEnter={() => setHover(l.href)}
-                  className="relative z-10 block px-3 py-2 text-sm text-muted-foreground transition-colors duration-300 hover:text-foreground xl:px-4"
+                  className="relative z-10 block px-3 py-2 text-[0.8125rem] text-muted-foreground transition-colors duration-300 hover:text-foreground xl:px-3.5"
                 >
                   {l.label}
                 </a>
                 {hover === l.href && (
                   <motion.span
                     layoutId="nav-hover"
-                    transition={{ type: "spring", stiffness: 350, damping: 30, mass: 0.8 }}
-                    className="absolute inset-0 -z-0 rounded-full bg-surface/80 ring-1 ring-border/60"
+                    transition={{ type: "spring", stiffness: 400, damping: 34, mass: 0.6 }}
+                    className="absolute inset-0 -z-0 rounded-full bg-surface/70"
                   />
                 )}
               </li>
@@ -76,16 +75,17 @@ export function Nav() {
             <LangToggle lang={lang} setLang={setLang} />
             <a
               href="#contact"
-              className="hidden rounded-full border border-border bg-surface/60 px-4 py-2 text-sm font-medium backdrop-blur transition-all duration-300 hover:border-accent hover:text-accent hover:shadow-[0_0_30px_-10px] hover:shadow-accent lg:inline-block"
+              className="hidden rounded-full border border-border/70 px-4 py-2 text-[0.8125rem] font-medium transition-colors duration-300 hover:border-accent hover:text-accent lg:inline-block"
             >
               {t.nav.cta}
             </a>
+
             <button
               type="button"
               onClick={() => setMenuOpen((v) => !v)}
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
-              aria-label={t.nav.cta}
+              aria-label={menuOpen ? "Sulge menüü / Close menu" : "Menüü / Menu"}
               className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-surface/60 backdrop-blur transition-colors hover:border-accent hover:text-accent lg:hidden"
             >
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
