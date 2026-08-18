@@ -1,0 +1,26 @@
+# Kreatech OÜ
+
+> Kreatech OÜ on Eesti tehniline ja digitaalse arenduse partner. Aitame ettevõtetel analüüsida olemasolevaid veebilehti ja tarkvaralahendusi, tuvastada tehnilisi kitsaskohti, planeerida edasiarendust, parandada SEO-d ja leitavust AI-põhistes otsingutes, leida ja juhtida arenduspartnereid ning arendada veebi- ja tarkvaralahendusi.
+
+Kanooniline veebileht: https://kreatech.ee/
+Kontakt: info@kreatech.ee
+Keeled: eesti, inglise
+Asukoht: Eesti (töötame ka rahvusvaheliselt, distantsilt)
+
+## Mida Kreatech teeb
+
+- Analüüs ja audit: veebilehtede, tarkvara ja digiprotsesside tehniline analüüs.
+- Lahenduse ja tegevusplaani loomine: ärivajaduse tõlkimine realistlikuks tehniliseks lahenduseks, nõuded ja prioriteedid.
+- SEO ja digitaalne leitavus: tehniline SEO audit, sisustruktuur, struktuurandmed, nähtavus Google'is ja AI-otsingutes.
+- Arenduspartnerite leidmine: lähteülesande koostamine, partnerite otsing, pakkumiste ja tehniliste lahenduste hindamine.
+- Tehniline projektijuhtimine: kliendi tehniliste huvide esindamine ja arendusprotsessi juhtimine.
+- Arendus ja edasiarendus: veebiarendus, tarkvaraarendus, WordPress, Statamic, ReactJS, Node.js, integratsioonid.
+
+## Oluline eristus
+
+Kreatech ei alusta valmis lahenduse müügist, vaid probleemi mõistmisest. Õige lahendus võib olla uus veebileht, olemasoleva lahenduse edasiarendus, SEO parandused, integratsioon, kohandatud tarkvara, sobiva arenduspartneri leidmine — või otsus, et arendust praegu vaja ei ole.
+
+## Lingid
+
+- Veebileht: https://kreatech.ee/
+- Sitemap: https://kreatech.ee/sitemap.xml
