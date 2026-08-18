@@ -72,20 +72,31 @@
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
     overflow-x: hidden;
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
     overflow-wrap: break-word;
+  }
+  p {
+    text-wrap: pretty;
   }
   section[id] {
     scroll-margin-top: 6rem;
+  }
+  /* One consistent, visible focus treatment across the whole page. */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
   }
   ::selection {
     background: var(--color-accent);
     color: var(--color-accent-foreground);
   }
+
 
   ::view-transition-old(root),
   ::view-transition-new(root) {
