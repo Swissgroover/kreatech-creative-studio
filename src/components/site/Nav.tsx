@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { ScrollProgress } from "./ScrollProgress";
 import { useLang, type Lang } from "@/i18n/lang";
 
