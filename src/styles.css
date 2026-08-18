@@ -166,3 +166,27 @@
     transform: none !important;
   }
 }
+
+/* --- Shared rhythm primitives (spacing scale + hairlines) --- */
+@utility section-y {
+  padding-block: 5.5rem;
+}
+@media (min-width: 768px) {
+  .section-y { padding-block: 8rem; }
+}
+@utility section-y-lg {
+  padding-block: 7rem;
+}
+@media (min-width: 768px) {
+  .section-y-lg { padding-block: 11rem; }
+}
+@utility hairline {
+  border-color: color-mix(in oklab, var(--color-foreground) 12%, transparent);
+}
+@utility eyebrow {
+  font-size: 0.6875rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--color-accent);
+}
