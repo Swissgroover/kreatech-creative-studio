@@ -64,7 +64,7 @@ export function Services() {
 
       <div
         ref={wrapRef}
-        className="mt-12 overflow-x-auto overscroll-x-contain pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-16 lg:overflow-hidden lg:pb-0"
+        className="mt-12 overflow-x-auto overscroll-x-contain pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-16 lg:flex lg:min-h-[78vh] lg:items-center lg:overflow-hidden lg:pb-0"
       >
         <div
           ref={trackRef}
