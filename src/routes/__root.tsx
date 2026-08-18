@@ -151,9 +151,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="et">
       <head>
         <HeadContent />
+        <noscript>
+          {/* Content is animated in with GSAP; without JS it must stay visible. */}
+          <style>{`[data-reveal]{opacity:1 !important;filter:none !important;transform:none !important}`}</style>
+        </noscript>
       </head>
       <body>
         {children}
@@ -162,6 +166,7 @@ function RootShell({ children }: { children: ReactNode }) {
     </html>
   );
 }
+
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
