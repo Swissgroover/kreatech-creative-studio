@@ -24,7 +24,7 @@ export function Services() {
             <Reveal
               key={item.n}
               delay={(i % 3) * 0.05}
-              className="border-b border-border p-6 sm:[&:nth-child(odd)]:border-r lg:[&:nth-child(3n+1)]:border-r lg:[&:nth-child(3n+2)]:border-r lg:[&:nth-child(odd)]:border-r-0 lg:[&:nth-child(3n+1)]:border-r lg:[&:nth-child(3n+2)]:border-r"
+              className="border-b border-border p-6 sm:border-r sm:[&:nth-child(2n)]:border-r-0 lg:[&:nth-child(2n)]:border-r lg:[&:nth-child(3n)]:border-r-0"
             >
               <p className="text-xs tracking-[0.2em] text-accent">{item.n}</p>
               <h3 className="mt-3 text-lg font-medium text-foreground">{item.title}</h3>
