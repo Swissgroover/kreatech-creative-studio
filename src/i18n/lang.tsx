@@ -37,6 +37,16 @@ function getInitialLang(): Lang {
   }
 }
 
+function refreshScrollAnimations() {
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      import("gsap/ScrollTrigger")
+        .then(({ ScrollTrigger }) => ScrollTrigger.refresh())
+        .catch(() => {});
+    });
+  });
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(getInitialLang);
   const [isSwitching, setIsSwitching] = useState(false);
@@ -63,12 +73,18 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       const startViewTransition = (document as ViewTransitionDocument).startViewTransition;
       if (startViewTransition) {
         const transition = startViewTransition.call(document, applyLang);
-        transition.finished.finally(() => setIsSwitching(false));
+        transition.finished.finally(() => {
+          setIsSwitching(false);
+          refreshScrollAnimations();
+        });
         return;
       }
 
       applyLang();
-      window.setTimeout(() => setIsSwitching(false), 240);
+      window.setTimeout(() => {
+        setIsSwitching(false);
+        refreshScrollAnimations();
+      }, 260);
     },
     [lang],
   );
