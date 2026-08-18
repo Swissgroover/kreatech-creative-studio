@@ -9,9 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TeenusedRouteImport } from './routes/teenused'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjektidIndexRouteImport } from './routes/projektid.index'
+import { Route as ProjektidSlugRouteImport } from './routes/projektid.$slug'
 
+const TeenusedRoute = TeenusedRouteImport.update({
+  id: '/teenused',
+  path: '/teenused',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -22,35 +30,75 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjektidIndexRoute = ProjektidIndexRouteImport.update({
+  id: '/projektid/',
+  path: '/projektid/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjektidSlugRoute = ProjektidSlugRouteImport.update({
+  id: '/projektid/$slug',
+  path: '/projektid/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/teenused': typeof TeenusedRoute
+  '/projektid/$slug': typeof ProjektidSlugRoute
+  '/projektid/': typeof ProjektidIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/teenused': typeof TeenusedRoute
+  '/projektid/$slug': typeof ProjektidSlugRoute
+  '/projektid': typeof ProjektidIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/teenused': typeof TeenusedRoute
+  '/projektid/$slug': typeof ProjektidSlugRoute
+  '/projektid/': typeof ProjektidIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/sitemap.xml'
+  fullPaths:
+    | '/'
+    | '/sitemap.xml'
+    | '/teenused'
+    | '/projektid/$slug'
+    | '/projektid/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/sitemap.xml'
-  id: '__root__' | '/' | '/sitemap.xml'
+  to: '/' | '/sitemap.xml' | '/teenused' | '/projektid/$slug' | '/projektid'
+  id:
+    | '__root__'
+    | '/'
+    | '/sitemap.xml'
+    | '/teenused'
+    | '/projektid/$slug'
+    | '/projektid/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  TeenusedRoute: typeof TeenusedRoute
+  ProjektidSlugRoute: typeof ProjektidSlugRoute
+  ProjektidIndexRoute: typeof ProjektidIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/teenused': {
+      id: '/teenused'
+      path: '/teenused'
+      fullPath: '/teenused'
+      preLoaderRoute: typeof TeenusedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -65,12 +113,29 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projektid/': {
+      id: '/projektid/'
+      path: '/projektid'
+      fullPath: '/projektid/'
+      preLoaderRoute: typeof ProjektidIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projektid/$slug': {
+      id: '/projektid/$slug'
+      path: '/projektid/$slug'
+      fullPath: '/projektid/$slug'
+      preLoaderRoute: typeof ProjektidSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  TeenusedRoute: TeenusedRoute,
+  ProjektidSlugRoute: ProjektidSlugRoute,
+  ProjektidIndexRoute: ProjektidIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
