@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section id="top" className="relative">
       <div className="relative h-[70vh] min-h-[420px] w-full md:h-[86vh]">
-        <picture>
+        <picture className="block h-full w-full">
           <source
             type="image/avif"
             srcSet="/images/hero-800.avif 800w, /images/hero-1280.avif 1280w, /images/hero-1672.avif 1672w"
