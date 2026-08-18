@@ -85,7 +85,7 @@ export function Hero() {
           </a>
           <a
             href="#works"
-            className="inline-flex min-h-11 items-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground"
+            className="group inline-flex min-h-11 items-center gap-2 rounded-full px-5 py-3 text-sm font-medium text-muted-foreground transition-colors duration-300 hover:text-foreground"
           >
             {t.hero.ctaSecondary}
             <span className="transition-transform duration-300 group-hover:translate-x-1">↓</span>

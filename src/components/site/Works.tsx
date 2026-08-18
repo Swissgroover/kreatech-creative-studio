@@ -22,26 +22,28 @@ export function Works() {
   const loop = [...items, ...items];
 
   return (
-    <section id="works" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="works" aria-labelledby="works-heading" className="relative section-y overflow-hidden">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
-          <div className="mb-12 flex items-end justify-between gap-6">
-            <div>
-              <div className="mb-4 text-xs uppercase tracking-widest text-accent">
-                {t.works.eyebrow}
-              </div>
-              <h2 className="font-display text-4xl font-semibold tracking-tight md:text-6xl">
+          <div className="mb-14 grid gap-6 md:mb-20 md:grid-cols-12 md:items-end md:gap-10">
+            <div className="md:col-span-7">
+              <div className="eyebrow mb-5">{t.works.eyebrow}</div>
+              <h2
+                id="works-heading"
+                className="font-display text-[clamp(2rem,5vw,3.75rem)] font-semibold leading-[1.05] tracking-[-0.03em]"
+              >
                 {t.works.title[0]}
                 <span className="italic text-primary">{t.works.title[1]}</span>
                 {t.works.title[2]}
               </h2>
             </div>
-            <p className="hidden max-w-sm text-sm text-muted-foreground md:block">
+            <p className="max-w-[52ch] text-[0.9375rem] leading-relaxed text-muted-foreground md:col-span-5 md:justify-self-end md:text-right">
               {t.works.sub}
             </p>
           </div>
         </Reveal>
       </div>
+
 
       <div className="relative">
         <motion.div
