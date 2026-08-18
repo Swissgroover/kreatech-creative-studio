@@ -77,6 +77,10 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
+    overflow-wrap: break-word;
+  }
+  section[id] {
+    scroll-margin-top: 6rem;
   }
   ::selection {
     background: var(--color-accent);
