@@ -2,7 +2,7 @@ import { useState, type FormEvent } from "react";
 import { Reveal } from "./Reveal";
 import { useLang } from "@/i18n/lang";
 
-const EMAIL = "";
+const EMAIL = "info@kreatech.ee";
 
 export function Contact() {
   const { t } = useLang();
@@ -16,8 +16,8 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative overflow-hidden py-24 md:py-32">
-      <div className="absolute inset-0 -z-10">
+    <section id="contact" aria-labelledby="contact-heading" className="relative overflow-hidden py-24 md:py-32">
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
         <div className="absolute left-1/2 top-1/2 size-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/20 blur-[140px]" />
       </div>
 
@@ -28,7 +28,7 @@ export function Contact() {
               <div className="mb-4 text-xs uppercase tracking-widest text-accent">
                 {t.contact.eyebrow}
               </div>
-              <h2 className="font-display text-5xl font-semibold leading-[0.95] tracking-tight text-balance md:text-8xl">
+              <h2 id="contact-heading" className="font-display text-5xl font-semibold leading-[0.95] tracking-tight text-balance md:text-8xl">
                 {t.contact.title[0]}
                 <span className="italic text-accent">{t.contact.title[1]}</span>
                 {t.contact.title[2]}
@@ -52,6 +52,7 @@ export function Contact() {
             >
               <div className="space-y-5">
                 <Field
+                  id="contact-name"
                   label={t.contact.nameLabel}
                   value={form.name}
                   onChange={(v) => setForm({ ...form, name: v })}
@@ -59,6 +60,7 @@ export function Contact() {
                   required
                 />
                 <Field
+                  id="contact-email"
                   label={t.contact.emailLabel}
                   value={form.email}
                   onChange={(v) => setForm({ ...form, email: v })}
@@ -66,10 +68,15 @@ export function Contact() {
                   required
                 />
                 <div>
-                  <label className="block text-xs uppercase tracking-widest text-muted-foreground">
+                  <label
+                    htmlFor="contact-message"
+                    className="block text-xs uppercase tracking-widest text-muted-foreground"
+                  >
                     {t.contact.messageLabel}
                   </label>
                   <textarea
+                    id="contact-message"
+                    name="message"
                     required
                     rows={5}
                     value={form.message}
@@ -94,12 +101,14 @@ export function Contact() {
 }
 
 function Field({
+  id,
   label,
   value,
   onChange,
   type,
   required,
 }: {
+  id: string;
   label: string;
   value: string;
   onChange: (v: string) => void;
@@ -108,10 +117,16 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-xs uppercase tracking-widest text-muted-foreground">
+      <label
+        htmlFor={id}
+        className="block text-xs uppercase tracking-widest text-muted-foreground"
+      >
         {label}
       </label>
       <input
+        id={id}
+        name={id}
+        autoComplete={type === "email" ? "email" : "name"}
         required={required}
         type={type}
         value={value}
