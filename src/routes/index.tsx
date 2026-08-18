@@ -10,50 +10,56 @@ import { FAQ } from "@/components/site/FAQ";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 
-const TITLE = "Kreatech – Tarkvaraarendus, Veebilahendused ja AI Lahendused Eestis";
+const TITLE = "Kreatech | Tarkvaraarendus, analüüs ja tehniline projektijuhtimine";
 const DESCRIPTION =
-  "Kreatech arendab kaasaegseid veebilahendusi, infosüsteeme, e-poode, äritarkvara ja AI-põhiseid lahendusi. Loome kiireid, turvalisi ja skaleeritavaid digitooteid ettevõtetele Eestis ja rahvusvaheliselt.";
-const OG_TITLE = "Kreatech – Tarkvaraarendus ja AI Lahendused";
+  "Kreatech OÜ aitab ettevõtetel analüüsida ja parandada digilahendusi, planeerida tarkvaraarendust, juhtida tehnilisi projekte ning arendada veebilehti, infosüsteeme ja integratsioone. Tehniline SEO ja olemasolevate lahenduste edasiarendus.";
+const OG_TITLE = "Kreatech | Tehniline partner: analüüs, arendus ja projektijuhtimine";
 const OG_DESCRIPTION =
-  "Loome kvaliteetseid veebilahendusi, infosüsteeme, e-poode ning AI-põhiseid tarkvaralahendusi ettevõtetele.";
+  "Analüüsime olemasolevaid veebilehti ja tarkvara, planeerime lahendused ning arendame või juhime arendust. Tehniline SEO, integratsioonid ja hooldus.";
 
 const faqData = [
   {
-    question: "Mis tehnoloogiate ja raamistikega Kreatech arendusteenuseid pakub?",
+    question: "Millega Kreatech tegeleb?",
     answer:
-      "Meie põhitehnoloogiad on ReactJS (sh Next.js ja TanStack Start), WordPress, Statamic CMS ja Node.js. Vajadusel integreerime ka teisi raamistikke ja pilvelahendusi (AWS, Vercel, Supabase).",
+      "Kreatech OÜ on tehniline arenduspartner. Analüüsime olemasolevaid veebilehti ja tarkvara, kaardistame arendusvajaduse, planeerime lahenduse ning arendame veebilehti, infosüsteeme ja integratsioone. Lisaks pakume tehnilist projektijuhtimist, tehnilist SEO analüüsi ning olemasolevate lahenduste hooldust ja edasiarendust.",
   },
   {
-    question: "Kui kiiresti saab uus veebiprojekt või digilahendus valmis?",
+    question: "Kas Kreatech saab analüüsida olemasolevat veebilehte või tarkvaralahendust?",
     answer:
-      "Lihtsamad veebilahendused (nt WordPressi- või Statamicu-põhised saidid) jõuavad produktsiooni 2–4 nädalaga. Mahukamad ReactJS-i rakendused ja platvormid võtavad tavaliselt 2–3 kuud.",
+      "Jah. Vaatame üle tehnilise arhitektuuri, koodi seisu, jõudluse, turvalisuse, integratsioonid, SEO ja tööprotsessid. Sa ei pea tulema valmis lähteülesandega — analüüsi eesmärk ongi välja selgitada, mida on mõistlik teha enne raha kulutamist. Vahel on vastus, et uut arendust polegi vaja.",
   },
   {
-    question: "Kas pakute ka ainult projektijuhtimist ilma enda arendusmeeskonnata?",
+    question: "Kas Kreatech teeb tarkvaraarendust ja veebiarendust?",
     answer:
-      "Jah — kui sul on juba olemas arendusmeeskond, aga puudub tehniline projektijuht, kes oskab ideid võtta ja need arendajatele arusaadavaks viisiks edasi anda.",
+      "Jah. Arendame kohandatud veebirakendusi ja infosüsteeme ReactJSi, TypeScripti ja Node.js-i baasil ning veebilehti ja e-poode WordPressi ja Statamicu peal. Ehitame ka integratsioone olemasolevate süsteemide vahel ja arendame olemasolevaid lahendusi edasi.",
   },
   {
-    question: "Mis vahe on WordPressi ja Statamicu kasutamisel — kumba soovitaksite?",
+    question: "Mis on tehniline projektijuhtimine ja millal seda vaja on?",
     answer:
-      "WordPress on suurepärane, kui vajad kiiresti käivitatavat, laiade lisade ökosüsteemiga veebi. Statamic sobib paremini headless-CMS lahenduste ja puhtama andmestruktuuriga projektidele.",
+      "See tähendab, et Kreatech on tehniline esindaja kliendi poolel. Tõlgime ärivajaduse tehnilisteks nõueteks, suhtleme arendajatega, vaatame üle pakkumised, hindame lahenduste mõistlikkust, toome välja riskid ja hoiame arenduse ärilise eesmärgiga kooskõlas. Seda on vaja siis, kui ettevõttel pole oma CTO-d ega tehnilist tootejuhti.",
   },
   {
-    question: "Kas pakute ka pidevhalduse ja tugiteenust pärast projekti käivitamist?",
+    question: "Kas Kreatech saab aidata arenduspartneri leidmisel ja koordineerimisel?",
     answer:
-      "Kindlasti. Pakume WordPressi ja Statamicu saidide haldust, turvauuendusi, varundusi, jõudluse jälgimist ja kiirparandusi.",
+      "Jah. Aitame koostada lähteülesande, leida sobivad arendajad või agentuurid, võrrelda pakkumisi ja koordineerida tööd. Kui partner on juba olemas, saame olla tehniline vastaspool, kes küsib õigeid küsimusi ja kontrollib tarnet.",
   },
   {
-    question: "Kuidas käib hindamine ja kas pakute fikseeritud hinnaga projekte?",
+    question: "Kas Kreatech teeb SEO ja tehnilise SEO analüüsi?",
     answer:
-      "Alustame tasuta tutvumiskõnega, mille järel saadame fikseeritud hinnaga pakkumise koos ajakavaga. Keerukamate projektide puhul kasutame etappide kaupa (milestone) maksmist.",
+      "Jah, keskendume tehnilisele poolele: saidi struktuur, indekseerimine, crawlitavus, laadimiskiirus, metaandmed, struktuurandmed ja sisu arhitektuur. See parandab leitavust nii Google'is kui AI-otsingutes. Positsioone me ei luba — parandame selle, mis on tehniliselt kontrollitav.",
   },
   {
-    question: "Kas Kreatech töötab ka välisklientidega või ainult Eesti turul?",
+    question: "Kas olemasolevat süsteemi saab edasi arendada või tuleb uuesti teha?",
     answer:
-      "Oleme pärit Eestist, aga töötame meeleldi ka rahvusvaheliste klientidega. Kogu protsess on võimalik läbi viia distantsilt inglise või eesti keeles.",
+      "Enamasti saab edasi arendada. Alustame analüüsist ja ütleme ausalt, kas mõistlikum on olemasolevat parandada, osa ümber ehitada või terve lahendus asendada. Uue arenduse soovitame ainult siis, kui see on tegelikult odavam või vajalikum kui olemasoleva korrastamine.",
+  },
+  {
+    question: "Kuidas koostöö Kreatechiga algab?",
+    answer:
+      "Alustame lühikesest tutvumiskõnest, kus räägid probleemist või eesmärgist. Seejärel teeme vajadusel analüüsi ja saadame pakkumise koos skoobi ja ajakavaga. Suuremate projektide puhul jagame töö etappideks, et iga etapi järel oleks näha konkreetne tulemus.",
   },
 ];
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
