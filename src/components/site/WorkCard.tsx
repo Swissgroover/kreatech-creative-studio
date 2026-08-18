@@ -6,9 +6,20 @@ type WorkCardProps = {
   index: number;
   total: number;
   fallbackColor: string;
+  /** Visual-only duplicate used for the seamless loop: hidden from a11y + tab order. */
+  decorative?: boolean;
 };
 
-export function WorkCard({ title, tag, href, image, index, total, fallbackColor }: WorkCardProps) {
+export function WorkCard({
+  title,
+  tag,
+  href,
+  image,
+  index,
+  total,
+  fallbackColor,
+  decorative = false,
+}: WorkCardProps) {
   const isExternal = Boolean(href);
   const imgSrc =
     image ||
@@ -18,6 +29,7 @@ export function WorkCard({ title, tag, href, image, index, total, fallbackColor 
     <a
       href={href || "#"}
       {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      {...(decorative ? { "aria-hidden": true, tabIndex: -1 } : {})}
       className="group relative shrink-0 block overflow-hidden rounded-3xl border border-border bg-surface w-[80vw] sm:w-[55vw] md:w-[40vw] lg:w-[30vw] xl:w-[26rem]"
     >
       <div className="relative aspect-[4/3] overflow-hidden">

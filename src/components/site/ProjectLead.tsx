@@ -18,7 +18,7 @@ export function ProjectLead() {
               <div className="mb-4 text-xs uppercase tracking-widest text-accent">
                 {t.lead.eyebrow}
               </div>
-              <h2 className="font-display text-[2rem] font-semibold leading-[1.05] tracking-tight text-balance [overflow-wrap:anywhere] sm:text-4xl md:text-6xl">
+              <h2 className="font-display text-[2rem] font-semibold leading-[1.05] tracking-tight text-balance [hyphens:auto] [overflow-wrap:break-word] sm:text-4xl lg:text-5xl xl:text-6xl">
                 {t.lead.title[0]}
                 <span className="italic text-primary">{t.lead.title[1]}</span>
                 {t.lead.title[2]}

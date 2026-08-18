@@ -62,25 +62,30 @@ export function Works() {
           }}
           className="flex gap-6 w-max will-change-transform cursor-grab active:cursor-grabbing"
         >
-          {loop.map((w, i) => (
-            <div
-              key={i}
-              onMouseEnter={() => setHoverPaused(true)}
-              onMouseLeave={() => setHoverPaused(false)}
-              onTouchStart={() => setHoverPaused(true)}
-              onTouchEnd={() => setHoverPaused(false)}
-            >
-              <WorkCard
-                title={w.title}
-                tag={w.tag}
-                href={w.href}
-                image={w.image}
-                index={i % items.length}
-                total={items.length}
-                fallbackColor={FALLBACK_COLORS[i % FALLBACK_COLORS.length]}
-              />
-            </div>
-          ))}
+          {loop.map((w, i) => {
+            const decorative = i >= items.length;
+            return (
+              <div
+                key={i}
+                {...(decorative ? { "aria-hidden": true } : {})}
+                onMouseEnter={() => setHoverPaused(true)}
+                onMouseLeave={() => setHoverPaused(false)}
+                onTouchStart={() => setHoverPaused(true)}
+                onTouchEnd={() => setHoverPaused(false)}
+              >
+                <WorkCard
+                  title={w.title}
+                  tag={w.tag}
+                  href={w.href}
+                  image={w.image}
+                  index={i % items.length}
+                  total={items.length}
+                  fallbackColor={FALLBACK_COLORS[i % FALLBACK_COLORS.length]}
+                  decorative={decorative}
+                />
+              </div>
+            );
+          })}
         </motion.div>
 
         <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent" />
