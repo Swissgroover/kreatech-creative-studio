@@ -41,7 +41,7 @@ export function Services() {
   }, [t]);
 
   return (
-    <section id="services" className="relative py-24 md:py-32">
+    <section id="services" aria-labelledby="services-heading" className="relative py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="flex items-end justify-between gap-6">
@@ -49,7 +49,7 @@ export function Services() {
               <div className="mb-4 text-xs uppercase tracking-widest text-accent">
                 {t.services.eyebrow}
               </div>
-              <h2 className="font-display text-4xl font-semibold tracking-tight md:text-6xl">
+              <h2 id="services-heading" className="font-display text-4xl font-semibold tracking-tight md:text-6xl">
                 {t.services.title[0]}
                 <span className="italic text-primary">{t.services.title[1]}</span>
                 {t.services.title[2]}
