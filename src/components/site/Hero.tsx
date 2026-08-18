@@ -1,82 +1,57 @@
-import { motion } from "motion/react";
-import { useEffect, useRef } from "react";
 import { useLang } from "@/i18n/lang";
 
 export function Hero() {
   const { t } = useLang();
-  const blobRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = blobRef.current;
-    if (!el) return;
-    const onMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 60;
-      const y = (e.clientY / window.innerHeight - 0.5) * 60;
-      el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
-    };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
-  }, []);
 
   return (
-    <section id="top" className="relative flex min-h-screen items-center overflow-hidden pt-24">
-      <div
-        ref={blobRef}
-        className="pointer-events-none absolute inset-0 -z-10 transition-transform duration-300 ease-out"
-      >
-        <div className="absolute left-[10%] top-[20%] size-[480px] rounded-full bg-primary/30 blur-[120px]" />
-        <div className="absolute right-[5%] bottom-[10%] size-[420px] rounded-full bg-accent/20 blur-[140px]" />
+    <section id="top" className="relative">
+      <div className="relative h-[70vh] min-h-[420px] w-full md:h-[86vh]">
+        <picture>
+          <source
+            type="image/avif"
+            srcSet="/images/hero-800.avif 800w, /images/hero-1280.avif 1280w, /images/hero-1672.avif 1672w"
+            sizes="100vw"
+          />
+          <source
+            type="image/webp"
+            srcSet="/images/hero-800.webp 800w, /images/hero-1280.webp 1280w, /images/hero-1672.webp 1672w"
+            sizes="100vw"
+          />
+          <img
+            src="/images/hero-1280.jpg"
+            alt={t.hero.alt}
+            width={1672}
+            height={941}
+            fetchPriority="high"
+            decoding="async"
+            className="h-full w-full object-cover object-center"
+          />
+        </picture>
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-b from-background/70 via-transparent to-background"
+        />
       </div>
-      <div className="absolute inset-0 -z-10 noise-overlay opacity-[0.15]" />
 
-      <div className="mx-auto w-full max-w-7xl px-6">
-
-        <h1 className="font-display text-5xl font-semibold leading-[0.95] tracking-tight text-balance sm:text-7xl md:text-[8.5rem]">
-          {t.hero.words.map((w, i) => (
-            <motion.span
-              key={`${w}-${i}`}
-              initial={{ opacity: 0, y: 80 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.15 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
-              className={`mr-4 inline-block ${w === t.hero.italicWord ? "italic text-accent" : ""}`}
-            >
-              {w}
-            </motion.span>
-          ))}
-        </h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-          className="mt-10 max-w-xl text-base text-muted-foreground md:text-lg"
-        >
-          {t.hero.lead}
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1.1 }}
-          className="mt-10 flex flex-wrap items-center gap-4"
-        >
+      <div className="mx-auto -mt-16 max-w-6xl px-6 pb-4 md:-mt-24">
+        <p className="max-w-xl text-balance text-lg text-foreground md:text-xl">
+          {t.hero.statement}
+        </p>
+        <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
           <a
             href="#contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-transform hover:scale-[1.02]"
+            className="inline-flex items-center gap-2 rounded-sm bg-accent px-5 py-2.5 text-sm font-medium text-accent-foreground transition-opacity duration-200 hover:opacity-90"
           >
-            {t.hero.ctaPrimary}
-            <span className="transition-transform group-hover:translate-x-1">→</span>
+            {t.hero.ctaPrimary} <span aria-hidden="true">→</span>
           </a>
           <a
             href="#works"
-            className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium hover:border-accent hover:text-accent"
+            className="text-sm text-muted-foreground underline-offset-4 transition-colors duration-200 hover:text-foreground hover:underline"
           >
             {t.hero.ctaSecondary}
           </a>
-        </motion.div>
+        </div>
       </div>
-
-     
     </section>
   );
 }
