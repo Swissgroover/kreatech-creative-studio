@@ -1,95 +1,270 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/site/Hero";
+import { Services } from "@/components/site/Services";
+import { Process } from "@/components/site/Process";
+import { Works } from "@/components/site/Works";
+import { ProjectLead } from "@/components/site/ProjectLead";
+import { About } from "@/components/site/About";
+import { FAQ } from "@/components/site/FAQ";
+import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
-import {
-  AboutSection,
-  Capabilities,
-  ContactSection,
-  FaqSection,
-  Intro,
-  ProcessSection,
-  ProjectLead,
-  ProjectsSection,
-  ServicesSection,
-  WhyKreatech,
-} from "@/components/site/sections";
-import { FAQ, SERVICES, SITE } from "@/content/site";
-import { abs, canonical, ldScript, organizationLd, pageMeta, websiteLd } from "@/lib/seo";
 
-const TITLE = "Kreatech — tarkvaraarendus, veebilahendused ja tehniline projektijuhtimine";
-const DESCRIPTION = SITE.description;
+const TITLE = "Kreatech – Tarkvaraarendus, Veebilahendused ja AI Lahendused Eestis";
+const DESCRIPTION =
+  "Kreatech arendab kaasaegseid veebilahendusi, infosüsteeme, e-poode, äritarkvara ja AI-põhiseid lahendusi. Loome kiireid, turvalisi ja skaleeritavaid digitooteid ettevõtetele Eestis ja rahvusvaheliselt.";
+const OG_TITLE = "Kreatech – Tarkvaraarendus ja AI Lahendused";
+const OG_DESCRIPTION =
+  "Loome kvaliteetseid veebilahendusi, infosüsteeme, e-poode ning AI-põhiseid tarkvaralahendusi ettevõtetele.";
+
+const faqData = [
+  {
+    question: "Mis tehnoloogiate ja raamistikega Kreatech arendusteenuseid pakub?",
+    answer:
+      "Meie põhitehnoloogiad on ReactJS (sh Next.js ja TanStack Start), WordPress, Statamic CMS ja Node.js. Vajadusel integreerime ka teisi raamistikke ja pilvelahendusi (AWS, Vercel, Supabase).",
+  },
+  {
+    question: "Kui kiiresti saab uus veebiprojekt või digilahendus valmis?",
+    answer:
+      "Lihtsamad veebilahendused (nt WordPressi- või Statamicu-põhised saidid) jõuavad produktsiooni 2–4 nädalaga. Mahukamad ReactJS-i rakendused ja platvormid võtavad tavaliselt 2–3 kuud.",
+  },
+  {
+    question: "Kas pakute ka ainult projektijuhtimist ilma enda arendusmeeskonnata?",
+    answer:
+      "Jah — kui sul on juba olemas arendusmeeskond, aga puudub tehniline projektijuht, kes oskab ideid võtta ja need arendajatele arusaadavaks viisiks edasi anda.",
+  },
+  {
+    question: "Mis vahe on WordPressi ja Statamicu kasutamisel — kumba soovitaksite?",
+    answer:
+      "WordPress on suurepärane, kui vajad kiiresti käivitatavat, laiade lisade ökosüsteemiga veebi. Statamic sobib paremini headless-CMS lahenduste ja puhtama andmestruktuuriga projektidele.",
+  },
+  {
+    question: "Kas pakute ka pidevhalduse ja tugiteenust pärast projekti käivitamist?",
+    answer:
+      "Kindlasti. Pakume WordPressi ja Statamicu saidide haldust, turvauuendusi, varundusi, jõudluse jälgimist ja kiirparandusi.",
+  },
+  {
+    question: "Kuidas käib hindamine ja kas pakute fikseeritud hinnaga projekte?",
+    answer:
+      "Alustame tasuta tutvumiskõnega, mille järel saadame fikseeritud hinnaga pakkumise koos ajakavaga. Keerukamate projektide puhul kasutame etappide kaupa (milestone) maksmist.",
+  },
+  {
+    question: "Kas Kreatech töötab ka välisklientidega või ainult Eesti turul?",
+    answer:
+      "Oleme pärit Eestist, aga töötame meeleldi ka rahvusvaheliste klientidega. Kogu protsess on võimalik läbi viia distantsilt inglise või eesti keeles.",
+  },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
-    meta: pageMeta({ title: TITLE, description: DESCRIPTION, path: "/" }),
-    links: canonical("/"),
+    meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      {
+        name: "keywords",
+        content:
+          "Kreatech, tarkvaraarendus, veebiarendus, veebilehed, e-poed, AI lahendused, tehisintellekt, Laravel, React, Vue, TypeScript, API arendus, infosüsteemid, custom software, SaaS, Eesti tarkvarafirma",
+      },
+      { name: "author", content: "Kreatech" },
+      {
+        name: "robots",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
+      {
+        name: "googlebot",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
+      { name: "theme-color", content: "#0f172a" },
+      { name: "application-name", content: "Kreatech" },
+      { name: "format-detection", content: "telephone=no" },
+      { property: "og:site_name", content: "Kreatech" },
+      { property: "og:title", content: OG_TITLE },
+      { property: "og:description", content: OG_DESCRIPTION },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "et_EE" },
+      { property: "og:url", content: "https://kreatech.ee" },
+      { property: "og:image", content: "https://kreatech.ee/images/og-image.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Kreatech – tarkvara- ja veebiarendus" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: OG_TITLE },
+      {
+        name: "twitter:description",
+        content: "Kaasaegsed veebilahendused, infosüsteemid ja AI-põhine tarkvaraarendus.",
+      },
+      { name: "twitter:image", content: "https://kreatech.ee/images/og-image.png" },
+    ],
+
+    links: [{ rel: "canonical", href: "https://kreatech.ee/" }],
     scripts: [
-      ldScript({
-        "@context": "https://schema.org",
-        "@graph": [
-          organizationLd,
-          websiteLd,
-          {
-            "@type": "WebPage",
-            "@id": `${abs("/")}#webpage`,
-            url: abs("/"),
-            name: TITLE,
-            description: DESCRIPTION,
-            inLanguage: "et",
-            isPartOf: { "@id": `${abs("/")}#website` },
-            about: { "@id": `${abs("/")}#organization` },
-          },
-          {
-            "@type": "ItemList",
-            name: "Kreatechi teenused",
-            itemListElement: SERVICES.map((s, i) => ({
-              "@type": "ListItem",
-              position: i + 1,
-              item: {
-                "@type": "Service",
-                name: s.title,
-                description: s.short,
-                url: abs(s.href),
-                serviceType: s.title,
-                provider: { "@id": `${abs("/")}#organization` },
-                areaServed: { "@type": "Country", name: "Estonia" },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": ["Organization", "ProfessionalService"],
+              "@id": "https://kreatech.ee/#organization",
+              name: "Kreatech",
+              alternateName: "Kreatech OÜ",
+              url: "https://kreatech.ee",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://kreatech.ee/android-chrome-512x512.png",
+                width: 512,
+                height: 512,
               },
-            })),
-          },
-          {
-            "@type": "FAQPage",
-            mainEntity: FAQ.map((f) => ({
-              "@type": "Question",
-              name: f.q,
-              acceptedAnswer: { "@type": "Answer", text: f.a },
-            })),
-          },
-        ],
-      }),
+              image: "https://kreatech.ee/images/og-image.png",
+              description:
+                "Kreatech on Eesti tarkvarastuudio, mis pakub veebiarendust (ReactJS, WordPress, Statamic), infosüsteemide arendust, süsteemihaldust, tehnilist projektijuhtimist ja AI-põhiseid lahendusi.",
+              slogan: "Kaasaegne tarkvara- ja veebiarendus.",
+              areaServed: [
+                { "@type": "Country", name: "Estonia" },
+                { "@type": "Place", name: "European Union" },
+                { "@type": "Place", name: "Worldwide (remote)" },
+              ],
+              knowsAbout: [
+                "ReactJS arendus",
+                "Next.js",
+                "TanStack Start",
+                "TypeScript",
+                "Node.js",
+                "WordPress arendus ja haldus",
+                "Statamic CMS",
+                "Headless CMS",
+                "E-poodide arendus",
+                "Infosüsteemide arendus",
+                "API arendus",
+                "Süsteemihaldus ja DevOps",
+                "Tarkvara analüüs",
+                "Projektide kirjutamine",
+                "Tehniline projektijuhtimine",
+                "AI lahendused ja tehisintellekt",
+                "SEO ja jõudluse optimeerimine",
+              ],
+              contactPoint: [
+                {
+                  "@type": "ContactPoint",
+                  contactType: "customer support",
+                  email: "info@kreatech.ee",
+                  availableLanguage: ["Estonian", "English"],
+                },
+              ],
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://kreatech.ee/#website",
+              url: "https://kreatech.ee",
+              name: "Kreatech",
+              publisher: { "@id": "https://kreatech.ee/#organization" },
+              inLanguage: ["et", "en"],
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://kreatech.ee/#webpage",
+              url: "https://kreatech.ee/",
+              name: TITLE,
+              description: DESCRIPTION,
+              isPartOf: { "@id": "https://kreatech.ee/#website" },
+              about: { "@id": "https://kreatech.ee/#organization" },
+              primaryImageOfPage: "https://kreatech.ee/images/og-image.png",
+              inLanguage: "et",
+            },
+            {
+              "@type": "ItemList",
+              "@id": "https://kreatech.ee/#services",
+              name: "Kreatechi teenused",
+              itemListElement: [
+                {
+                  "@type": "Service",
+                  position: 1,
+                  name: "ReactJS ja kaasaegne veebiarendus",
+                  serviceType: "Web application development",
+                  description:
+                    "Kaasaegsete veebirakenduste ja SaaS-platvormide arendus ReactJS, Next.js ja TanStack Start baasil.",
+                  provider: { "@id": "https://kreatech.ee/#organization" },
+                  areaServed: "EE",
+                },
+                {
+                  "@type": "Service",
+                  position: 2,
+                  name: "WordPress arendus ja haldus",
+                  serviceType: "WordPress development",
+                  description:
+                    "WordPressi veebilehtede ja e-poodide arendus, kohandatud teemad, pluginad ning pidev haldus, turvauuendused ja varundus.",
+                  provider: { "@id": "https://kreatech.ee/#organization" },
+                },
+                {
+                  "@type": "Service",
+                  position: 3,
+                  name: "Statamic CMS lahendused",
+                  serviceType: "Headless CMS development",
+                  description:
+                    "Statamic-põhised headless-CMS lahendused, kus on vaja paindlikku sisuhaldust ja puhast andmestruktuuri.",
+                  provider: { "@id": "https://kreatech.ee/#organization" },
+                },
+                {
+                  "@type": "Service",
+                  position: 4,
+                  name: "Süsteemihaldus ja DevOps",
+                  serviceType: "System administration",
+                  description:
+                    "Serverite, pilveinfrastruktuuri ja deploy-protsesside haldus, monitooring ja jõudluse optimeerimine.",
+                  provider: { "@id": "https://kreatech.ee/#organization" },
+                },
+                {
+                  "@type": "Service",
+                  position: 5,
+                  name: "Tarkvara analüüs ja projektide kirjutamine",
+                  serviceType: "Software analysis",
+                  description:
+                    "Ärinõuete kaardistamine, tehnilise lahenduse disain ja projektidokumentatsiooni koostamine enne arenduse algust.",
+                  provider: { "@id": "https://kreatech.ee/#organization" },
+                },
+                {
+                  "@type": "Service",
+                  position: 6,
+                  name: "Tehniline projektijuhtimine",
+                  serviceType: "Technical project management",
+                  description:
+                    "Tehniline projektijuht olemasolevale arendusmeeskonnale — tõlgime äriideed arendajatele arusaadavaks ja juhime tarne.",
+                  provider: { "@id": "https://kreatech.ee/#organization" },
+                },
+              ],
+            },
+            {
+              "@type": "FAQPage",
+              "@id": "https://kreatech.ee/#faq",
+              mainEntity: faqData.map((f) => ({
+                "@type": "Question",
+                name: f.question,
+                acceptedAnswer: { "@type": "Answer", text: f.answer },
+              })),
+            },
+          ],
+        }),
+      },
     ],
   }),
-  component: HomePage,
+  component: Index,
 });
 
-function HomePage() {
+function Index() {
   return (
-    <>
+    <main className="relative">
       <Nav />
-      <main>
-        <Hero />
-        <Intro />
-        <ServicesSection />
-        <WhyKreatech />
-        <ProjectsSection />
-        <ProjectLead />
-        <ProcessSection />
-        <Capabilities />
-        <AboutSection />
-        <FaqSection />
-        <ContactSection />
-      </main>
+      <Hero />
+      <Services />
+      <Process />
+      <Works />
+      <ProjectLead />
+      <About />
+      <FAQ />
+      <Contact />
       <Footer />
-    </>
+    </main>
   );
 }

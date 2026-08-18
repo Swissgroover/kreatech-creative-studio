@@ -1,47 +1,82 @@
-import { Link } from "@tanstack/react-router";
+import { motion } from "motion/react";
+import { useEffect, useRef } from "react";
+import { useLang } from "@/i18n/lang";
 
 export function Hero() {
-  return (
-    <section className="on-dark relative isolate flex min-h-[85svh] items-end overflow-hidden pt-24">
-      <picture>
-        <source media="(max-width: 640px)" srcSet="/images/hero-mobile.webp" />
-        <source media="(max-width: 1280px)" srcSet="/images/hero-1200.webp" />
-        <img
-          src="/images/hero-desktop.webp"
-          alt="Kreatech — tarkvaraarendus"
-          width={1672}
-          height={941}
-          fetchPriority="high"
-          decoding="async"
-          className="absolute inset-0 -z-10 h-full w-full object-cover object-center"
-        />
-      </picture>
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-t from-teal-900 via-teal-900/70 to-transparent"
-      />
-      <div
-        aria-hidden="true"
-        className="absolute inset-x-0 top-0 -z-10 h-28 bg-gradient-to-b from-teal-900/70 to-transparent"
-      />
+  const { t } = useLang();
+  const blobRef = useRef<HTMLDivElement>(null);
 
-      <div className="mx-auto w-full max-w-6xl px-5 pb-14 sm:pb-20">
-        <p className="max-w-xl text-balance text-[clamp(1rem,2.6vw,1.375rem)] text-paper/90">
-          Tarkvaraarendus, veebilahendused ja tehniline projektijuhtimine.
-        </p>
-        <div className="mt-8 flex flex-wrap items-center gap-6">
-          <Link
-            to="/"
-            hash="kontakt"
-            className="border border-sand/60 px-6 py-3 text-sm text-paper transition-colors hover:bg-sand hover:text-teal-900"
-          >
-            Räägime projektist <span aria-hidden="true">→</span>
-          </Link>
-          <Link to="/projektid" className="underline-link text-sm text-paper/80">
-            Vaata tehtud töid
-          </Link>
-        </div>
+  useEffect(() => {
+    const el = blobRef.current;
+    if (!el) return;
+    const onMove = (e: MouseEvent) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 60;
+      const y = (e.clientY / window.innerHeight - 0.5) * 60;
+      el.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+    };
+    window.addEventListener("mousemove", onMove);
+    return () => window.removeEventListener("mousemove", onMove);
+  }, []);
+
+  return (
+    <section id="top" className="relative flex min-h-screen items-center overflow-hidden pt-24">
+      <div
+        ref={blobRef}
+        className="pointer-events-none absolute inset-0 -z-10 transition-transform duration-300 ease-out"
+      >
+        <div className="absolute left-[10%] top-[20%] size-[480px] rounded-full bg-primary/30 blur-[120px]" />
+        <div className="absolute right-[5%] bottom-[10%] size-[420px] rounded-full bg-accent/20 blur-[140px]" />
       </div>
+      <div className="absolute inset-0 -z-10 noise-overlay opacity-[0.15]" />
+
+      <div className="mx-auto w-full max-w-7xl px-6">
+
+        <h1 className="font-display text-5xl font-semibold leading-[0.95] tracking-tight text-balance sm:text-7xl md:text-[8.5rem]">
+          {t.hero.words.map((w, i) => (
+            <motion.span
+              key={`${w}-${i}`}
+              initial={{ opacity: 0, y: 80 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.15 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+              className={`mr-4 inline-block ${w === t.hero.italicWord ? "italic text-accent" : ""}`}
+            >
+              {w}
+            </motion.span>
+          ))}
+        </h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
+          className="mt-10 max-w-xl text-base text-muted-foreground md:text-lg"
+        >
+          {t.hero.lead}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.1 }}
+          className="mt-10 flex flex-wrap items-center gap-4"
+        >
+          <a
+            href="#contact"
+            className="group inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-transform hover:scale-[1.02]"
+          >
+            {t.hero.ctaPrimary}
+            <span className="transition-transform group-hover:translate-x-1">→</span>
+          </a>
+          <a
+            href="#works"
+            className="inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium hover:border-accent hover:text-accent"
+          >
+            {t.hero.ctaSecondary}
+          </a>
+        </motion.div>
+      </div>
+
+     
     </section>
   );
 }

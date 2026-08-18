@@ -1,50 +1,52 @@
-import { useEffect, useRef, useState, type ElementType, type ReactNode } from "react";
+import { useLayoutEffect, useRef, type ReactNode } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-type Props = {
+gsap.registerPlugin(ScrollTrigger);
+
+export function Reveal({
+  children,
+  delay = 0,
+  y = 48,
+  className,
+  as: As = "div",
+}: {
   children: ReactNode;
-  as?: ElementType;
-  className?: string;
   delay?: number;
-  id?: string;
-};
+  y?: number;
+  className?: string;
+  as?: "div" | "section" | "article" | "li";
+}) {
+  const ref = useRef<HTMLElement>(null);
 
-/**
- * Minimal, dependency-free entry animation.
- * Content is present in the DOM and readable without JavaScript.
- */
-export function Reveal({ children, as: Tag = "div", className = "", delay = 0, id }: Props) {
-  const ref = useRef<HTMLElement | null>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (typeof IntersectionObserver === "undefined") {
-      setVisible(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setVisible(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.05 },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        el,
+        { opacity: 0, y, filter: "blur(8px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 1.1,
+          delay,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        },
+      );
+    }, el);
+    return () => ctx.revert();
+  }, [delay, y]);
 
-  return (
-    <Tag
-      id={id}
-      ref={ref}
-      data-visible={visible}
-      style={delay ? { transitionDelay: `${delay}ms` } : undefined}
-      className={`reveal ${className}`}
-    >
-      {children}
-    </Tag>
-  );
+  const hiddenClass = "opacity-0";
+  const combinedClassName = className ? `${hiddenClass} ${className}` : hiddenClass;
+
+  // @ts-expect-error dynamic element
+  return <As ref={ref} className={combinedClassName}>{children}</As>;
 }
