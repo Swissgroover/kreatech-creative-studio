@@ -85,7 +85,7 @@ export function Nav() {
               onClick={() => setMenuOpen((v) => !v)}
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
-              aria-label={t.nav.cta}
+              aria-label={menuOpen ? "Sulge menüü / Close menu" : "Menüü / Menu"}
               className="inline-flex size-10 items-center justify-center rounded-full border border-border bg-surface/60 backdrop-blur transition-colors hover:border-accent hover:text-accent lg:hidden"
             >
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
