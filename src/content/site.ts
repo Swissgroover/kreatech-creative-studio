@@ -584,4 +584,7 @@ export function projectsForService(slug: string) {
   return PROJECTS.filter((p) => p.services.includes(slug));
 }
 
-export type ServiceItem = (typeof SERVICES)[number];
+export type ServiceItem = (typeof SERVICES)[number] & {
+  tech?: readonly string[];
+  process?: readonly { title: string; desc: string }[];
+};
