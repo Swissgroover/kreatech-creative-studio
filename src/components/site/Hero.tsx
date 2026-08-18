@@ -5,8 +5,8 @@ export function Hero() {
 
   return (
     <section id="top" className="relative">
-      <div className="relative h-[70vh] min-h-[420px] w-full md:h-[86vh]">
-        <picture className="block h-full w-full">
+      <div className="relative w-full md:h-[86vh]">
+        <picture className="block w-full md:h-full">
           <source
             type="image/avif"
             srcSet="/images/hero-800.avif 800w, /images/hero-1280.avif 1280w, /images/hero-1672.avif 1672w"
@@ -24,7 +24,7 @@ export function Hero() {
             height={941}
             fetchPriority="high"
             decoding="async"
-            className="h-full w-full object-cover object-center"
+            className="h-auto w-full md:h-full md:object-cover md:object-center"
           />
         </picture>
         <div
@@ -33,7 +33,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto -mt-16 max-w-6xl px-6 pb-4 md:-mt-24">
+      <div className="relative z-10 mx-auto mt-8 max-w-6xl px-6 pb-4 md:-mt-24 md:mt-0">
         <p className="max-w-xl text-balance text-lg text-foreground md:text-xl">
           {t.hero.statement}
         </p>
