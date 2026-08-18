@@ -62,16 +62,19 @@ export function Services() {
         </Reveal>
       </div>
 
-      <div ref={wrapRef} className="mt-16 overflow-hidden">
+      <div
+        ref={wrapRef}
+        className="mt-12 overflow-x-auto overscroll-x-contain pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mt-16 md:overflow-hidden md:pb-0"
+      >
         <div
           ref={trackRef}
-          className="flex gap-6 px-6 md:gap-8 md:px-12"
+          className="flex snap-x snap-mandatory gap-6 px-6 md:snap-none md:gap-8 md:px-12"
           style={{ width: "max-content" }}
         >
           {t.services.items.map((s, i) => (
             <article
               key={i}
-              className="group relative flex h-[60vh] w-[85vw] flex-col justify-between overflow-hidden rounded-3xl border border-border bg-surface p-8 md:h-[70vh] md:w-[44vw] md:p-12"
+              className="group relative flex w-[82vw] max-w-[420px] snap-center flex-col gap-10 overflow-hidden rounded-3xl border border-border bg-surface p-7 sm:p-8 md:w-[44vw] md:min-h-[62vh] md:max-w-none md:justify-between md:p-12"
             >
               <div className="absolute inset-0 -z-10 bg-gradient-to-br from-primary/0 to-primary/0 transition-all duration-700 group-hover:from-primary/10 group-hover:to-accent/5" />
               <div className="flex items-start justify-between">
